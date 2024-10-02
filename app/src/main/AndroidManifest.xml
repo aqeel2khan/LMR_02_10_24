@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <application
+        android:name="com.lmr.App"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.BatchFinal"
+        tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAWKqULrFH7MxXyYloX3gerkHLtZYyu1ok"/>
+
+        <activity
+            android:name="com.lmr.appmodule.appcommonView.SplashLoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+<!--        </activity>-->
+<!--&lt;!&ndash;        <activity android:name=".view.activity.MainActivity">&ndash;&gt;-->
+
+<!--        </activity>-->
+
+
+
+        <activity
+            android:name="com.example.batchfinal.com.lmr.view.activity.EventActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.batchfinal.com.lmr.view.activity.PreviewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.DashboardActivity"
+            android:exported="false" />
+        <!--        <activity-->
+        <!--            android:name=""-->
+        <!--            android:exported="false" />-->
+
+        <activity android:name="com.lmr.appmodule.home.view.MainActivity" />
+        <activity
+            android:name=".appmodule.createvent.view.EventTicketingSeatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".appmodule.createvent.view.EventOrganizerDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".appmodule.createvent.view.EventLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".appmodule.createvent.view.DateTimeEventCaptureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".appmodule.createvent.view.EventBookDateSeatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".appmodule.createvent.view.EventDescriptionActivity"
+            android:exported="false" />
+
+        <activity android:name=".appmodule.createvent.view.EventPreviewsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".appmodule.vendor.ui.activity.VendorDetailsActivity"
+            android:screenOrientation="sensorPortrait"
+            android:exported="false"/>
+
+        <activity android:name=".appmodule.eventorganizorlist.view.EventOrganizerListActivity"
+            android:exported="false">
+
+        </activity>
+
+        <activity
+            android:name=".appmodule.organizerDetail.CompanyDetailsFragment"
+            android:exported="false" />
+
+
+<!--        <activity-->
+<!--            android:name="com.example.batchfinal.com.lmr.appmodule.createvent.viewfrag.BasicDetailsFragment"-->
+<!--            android:theme="@style/Theme.LMR_ActionBar"-->
+<!--            android:exported="false" />-->
+    </application>
+</manifest>

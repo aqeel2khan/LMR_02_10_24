@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="clickListener"
+            type="com.lmr.appmodule.vendor.utils.OnClickListener" />
+
+        <variable
+            name="vendorDataItem"
+            type="com.lmr.appmodule.vendor.model.VendorDataItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/outer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:setHexBackGroundColor="@{vendorDataItem.backGroundColor}">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_end"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:visibility="@{vendorDataItem.isBackGround() ? View.VISIBLE : View.GONE}"
+            android:id="@+id/iv_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/bg_flower"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_event_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{vendorDataItem.vendorLabel}"
+            android:textSize="16sp"
+            android:textColor="@color/gray_text_color"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/guideline_vertical_top"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_event_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{vendorDataItem.vendorName}"
+            android:textColor="@color/red_text_color"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/tv_event_label"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_vendors_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_event_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_event_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_25"
+            android:textColor="@color/gray_text_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/view_more"
+            app:layout_constraintStart_toStartOf="@id/tv_available"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_available"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@string/available"
+            android:textColor="@color/red_text_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_event_count"
+            app:layout_constraintEnd_toStartOf="@id/view_more"/>
+
+        <View
+            android:id="@+id/view_more"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/purple_oval"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{(view) -> clickListener.onClick(view, vendorDataItem)}"
+            app:layout_constraintTop_toTopOf="@id/tv_event_label"
+            app:layout_constraintBottom_toBottomOf="@id/tv_event_name"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_view_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/black_arrow"
+            app:layout_constraintTop_toTopOf="@id/view_more"
+            app:layout_constraintBottom_toBottomOf="@id/view_more"
+            app:layout_constraintStart_toStartOf="@id/view_more"
+            app:layout_constraintEnd_toEndOf="@id/view_more"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

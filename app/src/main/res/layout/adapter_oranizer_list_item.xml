@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/outer_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/white_bg_blue_border_round_corner"
+     >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_background"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_130sdp"
+            app:srcCompat="@drawable/img_16"
+          />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBankName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/blue_5F5F7A"
+            android:textStyle="bold"
+            android:layout_below="@+id/iv_background"
+          />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvBankName"
+            android:text="@string/title"
+            android:textColor="@color/blue_5F5F7A"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="normal"
+             />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEventCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/blue_5F5F7A"
+            android:textStyle="normal"
+            android:layout_below="@+id/tvAddress"
+          />
+
+
+
+
+
+    </RelativeLayout>
+</layout>

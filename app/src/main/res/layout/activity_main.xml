@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_color"
+    >
+
+    <RelativeLayout
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_10sdp">
+
+            <com.lmr.app_custom.MyCustomTextView
+                android:id="@+id/tv_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/txt_home"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/im_notification"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/notification" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_above="@id/rl_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_title"
+        android:background="@drawable/rounded_bg_main">
+        <fragment
+            android:id="@+id/main_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:defaultNavHost="true"
+            app:navGraph='@navigation/main_graph'/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/gradient_bg_white"
+        android:layout_height="@dimen/_60sdp">
+        <com.lmr.appmodule.menuItemNavigation.ChipNavigationBar
+            android:id="@+id/bottom_nav_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            app:backgroundColor="@color/white"
+            android:backgroundTint="#282828"
+            android:fadingEdge="horizontal"
+            app:indicatorColor="#4CAF50"
+            app:cnb_menuResource="@menu/menu_bottom"
+            app:cnb_unselectedColor="@color/black"/>
+
+    </RelativeLayout>
+
+
+
+<!--    <me.ibrahimsn.lib.SmoothBottomBar-->
+<!--        android:visibility="gone"-->
+<!--        android:id="@+id/bottomBar"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="70dp"-->
+<!--        app:backgroundColor="@color/white"-->
+<!--        app:iconSize="24dp"-->
+<!--        app:indicatorColor="#4CAF50"-->
+<!--        app:sideMargins="10dp"-->
+<!--        app:itemPadding="10dp"-->
+<!--        app:iconTint="#000000"-->
+<!--        app:iconTintActive="#000000"-->
+<!--        app:corners="top_left|bottom_right"-->
+<!--        app:menu="@menu/menu_bottom"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+</RelativeLayout>

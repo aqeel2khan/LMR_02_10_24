@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/VendorFragment">
+
+    <fragment
+        android:id="@+id/VendorFragment"
+        android:name="com.lmr.appmodule.vendor.ui.fragment.VendorFragment"
+        android:label="@string/vendor_fragment_label"
+        tools:layout="@layout/fragment_vendor">
+
+        <action
+            android:id="@+id/action_VendorFragment_to_VendorDetailsFragment"
+            app:destination="@id/VendorDetailsFragment" />
+
+        <action
+            android:id="@+id/action_VendorFragment_to_VenuesFragment"
+            app:destination="@id/VenuesFragment" />
+
+        <action
+            android:id="@+id/action_VendorFragment_to_VenueDetailsFragment"
+            app:destination="@id/VenueDetailsFragment" />
+
+        <action
+            android:id="@+id/action_VendorFragment_to_PhotographersFragment"
+            app:destination="@id/PhotographersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/VendorDetailsFragment"
+        android:name="com.lmr.appmodule.vendor.ui.fragment.VendorDetailsFragment"
+        android:label="@string/vendor_details_fragment_label"
+        tools:layout="@layout/fragment_vendor_details">
+
+        <action
+            android:id="@+id/action_VendorDetailsFragment_to_VendorFragment"
+            app:destination="@id/VendorFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/VenuesFragment"
+        android:name="com.lmr.appmodule.vendor.ui.fragment.VenuesFragment"
+        android:label="@string/venues_fragment_label"
+        tools:layout="@layout/fragment_venues">
+
+        <action
+            android:id="@+id/action_VenuesFragment_to_VendorFragment"
+            app:destination="@id/VendorFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/VenueDetailsFragment"
+        android:name="com.lmr.appmodule.vendor.ui.fragment.VenueDetailsFragment"
+        android:label="@string/venue_details_fragment_label"
+        tools:layout="@layout/fragment_venue_details">
+
+        <action
+            android:id="@+id/action_VenueDetailsFragment_to_VenueLocationFragment"
+            app:destination="@id/VenueLocationFragment"
+            app:popUpTo="@id/VenueDetailsFragment"
+            app:popUpToInclusive="true"/>
+
+        <action
+            android:id="@+id/action_VenueDetailsFragment_to_VendorFragment"
+            app:destination="@id/VendorFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/PhotographersFragment"
+        android:name="com.lmr.appmodule.vendor.ui.fragment.PhotographersFragment"
+        android:label="@string/photographers_fragment_label"
+        tools:layout="@layout/fragment_photographers">
+
+        <action
+            android:id="@+id/action_PhotographersFragment_to_VendorFragment"
+            app:destination="@id/VendorFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/VenueLocationFragment"
+        android:name="com.lmr.appmodule.vendor.ui.fragment.VenueLocationFragment"
+        android:label="@string/venue_location_fragment_label"
+        tools:layout="@layout/fragment_venue_location">
+
+        <action
+            android:id="@+id/action_VenueLocationFragment_to_VenueDetailsFragment"
+            app:destination="@id/VenueDetailsFragment"
+            app:popUpTo="@id/VenueDetailsFragment"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+</navigation>

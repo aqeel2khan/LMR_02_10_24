@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="com.lmr.appmodule.vendor.utils.OnClickListener" />
+
+        <variable
+            name="vendorEventDataItem"
+            type="com.lmr.appmodule.vendor.model.VendorEventDataItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_vendor_venue_item"
+        android:layout_width="240dp"
+        android:layout_height="180dp"
+        app:cardCornerRadius="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{(view) -> clickListener.onClick(view, vendorEventDataItem)}"
+        android:shadowColor="@color/gray_text_color"
+        app:cardElevation="@dimen/spacing">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_venue_image"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/venue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_availability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/green_bg_round_corner"
+                android:layout_margin="10dp"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="16dp"
+                android:fontFamily="@font/mont_bold"
+                android:text="@string/available"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_venue_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/the_marriott"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/iv_venue_image"
+                app:layout_constraintBottom_toTopOf="@id/tv_venue_address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_venue_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Opp. US Embassy, AL Jumeriah"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintTop_toBottomOf="@id/tv_venue_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

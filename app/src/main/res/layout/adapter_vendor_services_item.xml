@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="com.lmr.appmodule.vendor.utils.OnClickListener" />
+
+        <variable
+            name="vendorServiceDataItem"
+            type="com.lmr.appmodule.vendor.model.VendorServiceDataItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+
+        <View
+            android:id="@+id/view_service"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/white_circle_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_service_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/dslr_icon"
+            app:layout_constraintTop_toTopOf="@id/view_service"
+            app:layout_constraintBottom_toBottomOf="@id/view_service"
+            app:layout_constraintStart_toStartOf="@id/view_service"
+            app:layout_constraintEnd_toEndOf="@id/view_service"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_service_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Service name in Details"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view_service"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_service_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Service description\nService description\nService description"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_service_name"
+            app:layout_constraintStart_toStartOf="@id/tv_service_name"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_service_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Price Start From : 200 KD"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_service_description"
+            app:layout_constraintStart_toStartOf="@id/tv_service_name"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/bg_color_light"
+            app:layout_constraintTop_toBottomOf="@id/tv_service_price"
+            app:layout_constraintStart_toStartOf="@id/tv_service_price"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

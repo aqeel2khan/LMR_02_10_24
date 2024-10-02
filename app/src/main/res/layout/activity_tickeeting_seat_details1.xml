@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TicketingSeatDetailsActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp">
+
+        <include layout="@layout/custom_toolbar" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+
+                <TextView
+                    android:id="@+id/tvticketseatdetails_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/step_6"
+                    android:textColor="@color/redlight"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvtelleventgoerswhen"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/tvticketseatdetails_top"
+                    android:layout_marginTop="10dp"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/tell_event_goers_when_your_event_starst_and_ends_so_they_can_make_plans_to_attend"
+                    android:textColor="@color/grey2"
+                    android:textSize="15sp"
+                    tools:ignore="RtlHardcoded" />
+
+                <LinearLayout
+                    android:id="@+id/ll2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvtelleventgoerswhen"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvFreeText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/circle_shap_allo"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/free"
+                        android:textColor="@color/light_purple"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tvPaidText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/circel_shep_white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/paid"
+                        android:textColor="@color/light_purple" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/availableSeats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll2"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/available_seats_spots"
+                    android:textColor="@color/grey2"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/ll3"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/availableSeats"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="0.80"
+                        android:text="@string/name"
+                        android:textColor="@color/grey2"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.40" />
+
+                    <TextView
+                        android:id="@+id/tvAvailablequantity"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_weight="0.80"
+                        android:text="@string/avilable_quantitity"
+                        android:textColor="@color/grey2"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll4"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/ll3"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/vipSeatsTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="0.80"
+                        android:text="@string/vip_seats"
+                        android:textColor="@color/grey2"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="0.40" />
+
+
+                    <EditText
+                        android:id="@+id/quantityEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="0.80"
+                        android:background="@null"
+                        android:gravity="left|center_vertical"
+                        android:hint="@string/quantity"
+                        android:inputType="number"
+                        android:textColor="@color/grey2"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll4"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <View
+                        android:id="@+id/view4"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.80"
+                        android:background="@color/grey1" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.40" />
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="0.80"
+                        android:background="@color/grey1" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tv_ticket_sales"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/ll5"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/booking"
+                    android:textColor="@color/grey3"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/ll9"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/tv_ticket_sales"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tv_ticket_sales_start_date"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="0.80"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/start_date"
+                        android:textColor="@color/grey2"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.40">
+
+                    </View>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="0.80"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/start_time"
+                        android:textColor="@color/grey2"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll10"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/ll9"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RelativeLayout
+                        android:id="@+id/ticketsSalesStartDateRelative"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="0.8">
+
+                        <TextView
+                            android:id="@+id/ticketSalesStartDateText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:gravity="left|center_vertical"
+                            android:textColor="@color/grey2"
+                            android:textSize="11sp"
+                            tools:ignore="RtlHardcoded" />
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/calender" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.40" />
+
+                    <RelativeLayout
+                        android:id="@+id/startTimeSeat"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="0.8">
+
+                        <TextView
+                            android:id="@+id/salesStarTimeTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:gravity="left|center_vertical"
+                            android:textColor="@color/grey2"
+                            android:textSize="11sp"
+                            tools:ignore="RtlHardcoded" />
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/clock" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll10"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <View
+                        android:id="@+id/view67"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="0.80"
+                        android:background="@color/grey1" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="0.40">
+
+                    </View>
+
+                    <View
+                        android:id="@+id/view8"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="0.80"
+                        android:background="@color/grey1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll20"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/ll11"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="0.80"
+                        android:gravity="left|center_vertical"
+                        android:text="End Date"
+                        android:textColor="@color/grey2"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.40">
+
+                    </View>
+
+                    <TextView
+                        android:id="@+id/tv_lable_end_time"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="0.80"
+                        android:gravity="left|center_vertical"
+                        android:text="End Time"
+                        android:textColor="@color/grey2"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll12"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/ll20"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:id="@+id/ll13"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        tools:ignore="UselessParent">
+
+                        <RelativeLayout
+                            android:id="@+id/endDateLableRelative"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="0.80">
+
+                            <TextView
+                                android:id="@+id/endDateSaleTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:gravity="left|center_vertical"
+                                android:textColor="@color/grey2"
+                                android:textSize="11sp"
+                                tools:ignore="RtlHardcoded" />
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="8dp"
+                                android:src="@drawable/calender" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="0.4" />
+
+                        <RelativeLayout
+                            android:id="@+id/endTimeLableRelative"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="0.80">
+
+                            <TextView
+                                android:id="@+id/endTimeSaleTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:gravity="center_vertical"
+                                android:textColor="@color/grey2"
+                                android:textSize="11sp" />
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/endTimeSaleTextView"
+                                android:src="@drawable/clock" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll12"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <View
+                        android:id="@+id/view68"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight=".8"
+                        android:background="@color/grey1" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="0.4" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="0.8"
+                        android:background="@color/grey1" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvaddmoreticket"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/ll14"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/circel_shep_white"
+                    android:gravity="center"
+                    android:text="@string/add_more_ticket"
+                    android:textColor="@color/grey3"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/saveAndContinueButtonSeat"
+                    android:layout_width="300dp"
+                    android:layout_height="49dp"
+                    android:layout_below="@+id/tvaddmoreticket"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvsave"
+                        android:layout_width="0dp"
+                        android:layout_height="49dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_weight="1.50"
+                        android:gravity="center"
+                        android:text="SAVE &amp; CONTINUE"
+                        android:textColor="@color/grey"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/imiconright"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="0.50"
+                        android:src="@drawable/icon_right" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+
+
+

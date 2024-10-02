@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vendorPolicyDataItem"
+            type="com.lmr.appmodule.vendor.model.VendorPolicyDataItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_policy_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            app:srcCompat="@drawable/person_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_policy_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="Price/Person"
+            android:textSize="12sp"
+            android:textColor="@color/gray_text_color"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_policy_icon"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_policy_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="$ 150"
+            android:textSize="11sp"
+            android:textColor="@color/gray_text_color"
+            android:textStyle="normal"
+            app:layout_constraintTop_toBottomOf="@id/tv_policy_name"
+            app:layout_constraintStart_toStartOf="@id/tv_policy_name"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

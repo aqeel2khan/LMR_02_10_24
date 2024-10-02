@@ -1,0 +1,272 @@
+<resources>
+    <string name="app_name"> LMR</string>
+    <string name="terms_condition">I agree to the company <font color='#516634'>Terms &amp; Conditions</font></string>
+    <string name="add">ADD</string>
+    <string name="tell_event_goer_when_your_event_starts_and_ends_so_they_can_make_plans_to_attend">Tell event-goer when your event starts and ends so they can make plans to attend.</string>
+    <string name="step_3">Step -3</string>
+    <string name="single_day_event">SIngle Day Event</string>
+    <string name="recurring_event">Recurring Event</string>
+    <string name="first_event_details">First Event Details</string>
+    <string name="start_date">Start Date</string>
+    <string name="start_time">Start Time</string>
+    <string name="_12_june_2018">12 June 2018</string>
+    <string name="_4_00_pm">4.00 PM</string>
+    <string name="end_date">End Date</string>
+    <string name="end_time">End Time</string>
+    <string name="_13_june_2018">13 June 2018</string>
+    <string name="display_start_time">Display start time</string>
+    <string name="the_start_time_of_your_event_will_be_displayed_to_attendees">The start time of your event will be displayed to attendees</string>
+    <string name="add_more_date">+ Add More Date</string>
+    <string name="save_amp_continue"><![CDATA[SAVE & CONTINUE]]></string>
+    <string name="or">- OR -</string>
+    <string name="add_location_later">Add LOCATION LATER</string>
+    <string name="grand_hyatt_residency_jumairah">Grand Hyatt Residency, Jumairah</string>
+    <string name="choose_location_on_map_or_type_below">Choose Location on map \nor type below</string>
+    <string name="help_people_in_the_area_discover_your_event_and_let_attendees_know_where_to_show_up">Help people in the area discover your event and let attendees know where to show up</string>
+    <string name="step_4">Step - 4</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="add_more_members">+Add More Members</string>
+    <string name="add_more_ticket">+Add More Ticket</string>
+    <string name="event_will_be_available_publicly_for_all_users">Event will be available publicly for all users</string>
+    <string name="step_5">Step-5</string>
+    <string name="name_your_event_and_tell_event_goers_why_they_should_come_add_details_that_highlight_what_makes_it_unique">Name your event and tell event-goers why they should come Add details that highlight what makes it unique</string>
+    <string name="organizer_name">Organizer Name</string>
+    <string name="type_of_organizer">Type of organizer</string>
+    <string name="about_organizer">ABOUT ORGANIZER</string>
+    <string name="organizer_bio">ORGANIZER BIO...</string>
+    <string name="organizer_address">ORGANIZER ADDRESS</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="add_team_member_details">Add Team Member Details</string>
+    <string name="tickets_sales">Tickets Sales</string>
+    <string name="end_date_ticket_sale">End Date Ticket Sale</string>
+    <string name="quantity">Quantity</string>
+    <string name="vip_seats">VIP Seats</string>
+    <string name="avilable_quantitity">Avilable Quantitity</string>
+    <string name="name">Name</string>
+    <string name="available_seats_spots">Available Seats/Spots</string>
+    <string name="paid">Paid</string>
+    <string name="free">Free</string>
+    <string name="tell_event_goers_when_your_event_starst_and_ends_so_they_can_make_plans_to_attend">tell event-goers when your event starst and ends so they can make plans to attend</string>
+    <string name="step_6">Step-6</string>
+    <string name="booking">Booking</string>
+    <string name="event_description">Event Description</string>
+    <string name="step2">Step2</string>
+    <string name="tell_event_goers_more_details_about_your_event_and_upload">Tell event-goers more details about your event and upload</string>
+    <string name="high_defindtion_images_videos_posters_or_pdf">high defindtion images. videos.posters or pdf</string>
+    <string name="event_description_of_the_event">Event description of the event</string>
+    <string name="description">DESCRIPTION...</string>
+    <string name="images">Images</string>
+    <string name="enter_number">Enter Number</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="booked">Booked</string>
+    <string name="search">Search</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="create_event">Create Event</string>
+    <string name="profile">Profile</string>
+    <string name="ticketing_seat_details">Ticketing/ Seat Details</string>
+    <string name="ticket_details">Ticket Details</string>
+    <string name="enter_maxium_no">Enter Maxium No</string>
+    <string name="visiblity">Visiblity</string>
+    <string name="ticket_fee_absorbtion">Ticket Fee Absorbtion</string>
+    <string name="booking_details">Booking Details</string>
+    <string name="ticket_description">Ticket description</string>
+    <string name="tickets_description">Tickets description</string>
+    <string name="an_upcoming_event">An Upcoming event</string>
+    <string name="portrait_photography_nevent">Portrait Photography \nEvent</string>
+    <string name="about">About</string>
+    <string name="event_type">Event Type</string>
+    <string name="type_of_event"> Type of Event </string>
+
+    <string name="marriage">Marriage</string>
+    <string name="event_category">Event Category</string>
+    <string name="celebration">Celebration</string>
+    <string name="total_seating_capacity">Total Seating Capacity</string>
+    <string name="_100_people">100+ People</string>
+    <string name="event_tags">Event Tags</string>
+    <string name="sports">#SPORTS</string>
+    <string name="dance">#DANCE</string>
+    <string name="concept">#CONCEPT</string>
+    <string name="event">#EVENT</string>
+    <string name="organizer_details">Organizer Details</string>
+    <string name="tom_sanders">Tom sanders</string>
+    <string name="_965_44355333">+965 44355333</string>
+    <string name="post_event">POST EVENT</string>
+    <string name="save_amp_post_event_later"><![CDATA[SAVE & POST EVENT LATER]]></string>
+    <string name="book">BOOK</string>
+    <string name="_10_kd_50_kd">10 KD - 50 KD</string>
+    <!--add new string-->
+    <string name="please_check_internet">Please check Internet connection and try again.</string>
+    <string name="txt_batch">Batches</string>
+    <string name="sign_in">Sign In</string>
+    <string name="txt_motivations">Motivator</string>
+    <string name="txt_home">Find events in</string>
+    <string name="agree_and_continue">Agree And Continue</string>
+    <string name="log_in">Log in</string>
+    <string name="male">Male</string>
+    <string name="i_want_look">I want to look around</string>
+    <string name="female">Female</string>
+    <string name="already_account">Already have an account ? <font color='#516634'><b>Sign In</b></font></string>
+    <string name="before_we_start">Before we start, we need to know \nyour gender</string>
+    <string name="continue_text">Continue</string>
+    <string name="verification_code">Enter verification code</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="welcome_back_bath">Welcome to Batch!</string>
+    <string name="verification_number">We have sent the code verification to\n      your mobile number </string>
+    <string name="sign_in_account">Sign In to your account</string>
+    <string name="sign_in_google">Sign in with Google</string>
+    <string name="sign_in_outlook">Sign in with Outlook</string>
+    <string name="sign_in_facebook">Sign in with Facebook</string>
+    <string name="sign_in_apple">Sign in with Apple</string>
+    <string name="I_agree_term">I agree to the company</string>
+    <string name="term_condition"> Terms &amp; Conditions</string>
+    <string name="email">Email</string>
+    <string name="or_continue">Or continue with</string>
+    <string name="batchboard">Batchboard</string>
+    <string name="home">Home</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur">Lorem ipsum dolor sit amet consectetur.</string>
+    <string name="lorem_ipsum_dolor_sit">Lorem ipsum dolor sit</string>
+    <string name="the_code_is_invalid_please_try_again">The code is invalid. Please try again.</string>
+    <string name="ar">AR</string>
+    <string name="termCondition">Lorem ipsum dolor sit amet consectetur. Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagittis lobortis aliquam sed vestibulum. Mattis auctor hac cursus urna risus interdum et. Neque ut ultricies fringilla in nulla. \n\n
+At nulla orci egestas a lorem aliquam consectetur magna. Id id lacus eu commodo fusce tempus augue turpis vivamus. Tempus malesuada a amet eget vitae integer scelerisque tristique mauris. Eget id iaculis massa morbi ultrices tincidunt. Hac diam feugiat pretium enim nibh duis non mollis facilisi.Lorem ipsum dolor sit amet consectetur.\n\n
+Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagittis lobortis aliquam sed vestibulum. Mattis auctor hac cursus urna risus interdum et. Neque ut ultricies fringilla in nulla. At nulla orci egestas a lorem aliquam consectetur magna. Id id lacus eu commodo fusce tempus augue turpis vivamus. Tempus malesuada a amet eget vitae integer scelerisque tristique mauris. Eget id iaculis massa morbi ultrices tincidunt. Hac diam feugiat pretium enim nibh duis non mollis facilisi.</string>
+    <string name="select_country_region">Select Country / Region</string>
+    <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="subscribe_for_a_course">Subscribe for a Course</string>
+    <string name="_15_20_min">15-20 min</string>
+    <string name="please_wait_">Please wait</string>
+
+    <!--workout txt-->
+    <string name="current_batch">Current Batch</string>
+    <string name="workout_batch">WorkOut Batch</string>
+    <string name="workout_batchs">WorkOut Batches</string>
+    <string name="searches">Search </string>
+    <string name="create_events">Create Event </string>
+    <string name="shopping">Shopping</string>
+    <string name="my_account">Account</string>
+    <string name="txt_days"> days</string>
+    <string name="txt_Stretching">Stretching</string>
+    <string name="txt_follow">Follow</string>
+    <string name="txt_trainer_content">Highly experienced yoga and pilates instructor \nwith over 7 years of expertise in guiding \n students towards their wellness goals.</string>
+    <string name="txt_recommended_product">Recommended Products</string>
+    <string name="txt_doller_sign">$</string>
+    <string name="title">Title</string>
+
+
+
+    <!--weight loss-->
+    <string-array name="week">
+        <item>1 Weeks</item>
+        <item>2 Weeks</item>
+        <item>3 Weeks</item>
+        <item>4 Weeks</item>
+    </string-array>
+
+    <string name="internet_is_not_available">Internet is not available</string>
+
+    <string name="please_wait">please_wait</string>
+
+    <!--buy subscription text-->
+    <string name="workout_batch_capital">WORKOUT BATCH</string>
+    <string name="txt_weight_loss">Weight Lost</string>
+    <string name="txt_plan_duration">Select plan duration</string>
+    <string name="txt_batch_pro">BATCH PRO</string>
+    <string name="txt_get_batch_pro">Get Batch Pro</string>
+    <string name="txt_check_out">Checkout</string>
+    <string name="txt_add_pro">Add Promo code</string>
+    <string name="txt_start_workout">Start the Workout</string>
+    <string name="txt_channge_course">Change the Course</string>
+    <string name="txt_get_batch_pro_content">Get unlimited access and save up to 10% on every \ncourse with pro</string>
+
+    <string name="event_Organigers">Event Organizers</string>
+
+    <!--PPPPPPPPPPPPPPPPPP-->
+
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="vendor_fragment_label">Vendor Fragment</string>
+    <string name="vendor_details_fragment_label">Vendor Details Fragment</string>
+    <string name="venues_fragment_label">Venues Fragment</string>
+    <string name="venue_details_fragment_label">Venue Details Fragment</string>
+    <string name="photographers_fragment_label">Photographers Fragment</string>
+    <string name="venue_location_fragment_label">Venue Location Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+    <string name="filming">Filming</string>
+    <string name="the_marriott">The Marriott</string>
+    <string name="events">Events</string>
+    <string name="_25">25+</string>
+    <string name="available">Available</string>
+    <string name="_2_years_of_experience">2 Years of experience</string>
+    <string name="policies">Policies</string>
+    <string name="portfolio">Portfolio</string>
+    <string name="services">Services</string>
+    <string name="direction">Directions</string>
+    <string name="book_now">Book Now</string>
+    <string name="request_quote">Request Quote</string>
+    <!--<string name="event_type">Event Type</string>
+    <string name="marriage">Marriage</string>-->
+    <string name="category">Event Category</string>
+    <!--<string name="celebration">Celebration</string>-->
+    <string name="select_my_event">Select My Event</string>
+    <string name="vendor_near">Vendor Near</string>
+    <string name="_100_reviews">100 Reviews</string>
+    <string name="starting_from">Starting from</string>
+    <string name="menu">Menu</string>
+    <string name="food_amp_drinks"><![CDATA[Food & Drinks]]></string>
+    <string name="more_details">More Details</string>
+    <string name="exhibition_hall">Exhibition Hall</string>
+    <string name="floating_seating">20 Floating seating</string>
+    <string name="seating_space">Seating Space</string>
+    <string name="cost_details">Cost Details</string>
+    <string name="area_available">Area Available</string>
+    <!--<string name="about">About</string>-->
+    <string name="read_more">Read More…</string>
+    <string name="read_less">Read Less…</string>
+    <string name="sports1">Sports1</string>
+    <string name="concert">Concert</string>
+    <string name="filter">Filter</string>
+    <string name="search_for">Search For</string>
+    <string name="by_relevance">By Relevance</string>
+</resources>

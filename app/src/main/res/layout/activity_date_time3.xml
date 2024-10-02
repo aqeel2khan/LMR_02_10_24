@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DateTime3Activity">
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp">
+
+        <include layout="@layout/custom_toolbar" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlHeader">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
+
+            <RelativeLayout
+                android:id="@+id/rl2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp">
+
+                <TextView
+                    android:id="@+id/tvdatetime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/step_3"
+                    android:textColor="@color/redlight"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvtelleventgoer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvdatetime"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/tell_event_goer_when_your_event_starts_and_ends_so_they_can_make_plans_to_attend"
+                    android:textColor="@color/grey2"
+                    android:textSize="13sp"
+                    tools:ignore="RtlHardcoded" />
+
+                <LinearLayout
+                    android:id="@+id/ll2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvtelleventgoer"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvsingledayevent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/circle_shap_allo"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/single_day_event" />
+
+                    <TextView
+                        android:id="@+id/tvrecurringevent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/circel_shep_white"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/recurring_event" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvfirsteventdetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll2"
+                    android:layout_marginTop="20dp"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/first_event_details"
+                    android:textColor="#5F5F7A"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlHardcoded" />
+
+
+                <LinearLayout
+                    android:id="@+id/ll3"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/tvfirsteventdetails"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvstartdate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.80"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/start_date"
+                        android:textColor="#4A4A4A"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.40" />
+
+                    <TextView
+                        android:id="@+id/tvstarttime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_weight="0.80"
+                        android:text="@string/start_time"
+                        android:textColor="#4A4A4A"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/ll3"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="0.80">
+
+                        <TextView
+                            android:id="@+id/startDateText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_toEndOf="@+id/imdateicon"
+                            android:text="@string/_12_june_2018"
+                            android:textColor="#4A4A4A"
+                            android:textSize="11sp" />
+
+                        <ImageView
+                            android:id="@+id/imdateicon"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentEnd="true"
+                            android:src="@drawable/calender" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.40" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="0.80">
+
+                        <TextView
+                            android:id="@+id/tvStartTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="@string/_4_00_pm"
+                            android:textColor="#4A4A4A"
+                            android:textSize="11sp" />
+
+                        <ImageView
+                            android:id="@+id/ivStartTime"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/clock" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll4"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <View
+                        android:id="@+id/view4"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="0.80"
+                        android:background="@color/grey1" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="0.40" />
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="0.80"
+                        android:background="@color/grey1" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll6"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/ll5"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvenddate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.80"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/end_date"
+                        android:textColor="#4A4A4A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.40" />
+
+                    <TextView
+                        android:id="@+id/tvendtime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_weight="0.80"
+                        android:text="@string/end_time"
+                        android:textColor="#4A4A4A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/ll6"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="0.80">
+
+                        <TextView
+                            android:id="@+id/endDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_toEndOf="@+id/imenddata"
+                            android:gravity="left|center_vertical"
+                            android:text="@string/_13_june_2018"
+                            android:textColor="#4A4A4A"
+                            android:textSize="11sp"
+                            tools:ignore="RtlHardcoded" />
+
+                        <ImageView
+                            android:id="@+id/imenddata"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/calender" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.40" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="0.80">
+
+                        <TextView
+                            android:id="@+id/tvend4pm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:gravity="center_vertical"
+                            android:text="@string/_4_00_pm"
+                            android:textColor="#4A4A4A"
+                            android:textSize="11sp" />
+
+                        <ImageView
+                            android:id="@+id/imendtimeicon"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_toStartOf="@+id/tvend4pm"
+                            android:src="@drawable/clock" />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll7"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <View
+                        android:id="@+id/view6"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="0.80"
+                        android:background="@color/grey1" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0.40" />
+
+                    <View
+                        android:id="@+id/view7"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="0.80"
+                        android:background="@color/grey1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll8"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/ch1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#092C9F"
+                        android:text="@string/display_start_time"
+                        android:textColor="#4A4A4A"
+                        android:textColorHint="#092C9F"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvthe1"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:text="@string/the_start_time_of_your_event_will_be_displayed_to_attendees"
+                        android:textSize="11sp" />
+
+                    <CheckBox
+                        android:id="@+id/ch2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#092C9F"
+                        android:text="@string/display_start_time"
+                        android:textColor="#4A4A4A"
+                        android:textColorHint="#092C9F"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvthe2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:text="@string/the_start_time_of_your_event_will_be_displayed_to_attendees"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvaddmoredate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll9"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/circel_shep_white"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/add_more_date"
+                    android:textColor="#4A4A4A"
+                    android:textSize="11sp" />
+
+                <LinearLayout
+                    android:id="@+id/saveAndContinueButtonDateTime"
+                    android:layout_width="300dp"
+                    android:layout_height="49dp"
+                    android:layout_below="@+id/tvaddmoredate"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvsave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="32dp"
+                        android:layout_weight="1.50"
+                        android:gravity="center"
+                        android:text="@string/save_amp_continue"
+                        android:textColor="@color/grey"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="0.50"
+                        android:src="@drawable/icon_right" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="venueAvailableAreaDataItem"
+            type="com.lmr.appmodule.vendor.model.VenueAvailableAreaDataItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_middle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="32dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_available_area"
+            android:layout_width="190dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="10dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:shadowColor="@color/blue_status_color"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_venue_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/venue" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_area_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/mont_bold"
+            android:textSize="16sp"
+            android:textColor="@color/gray_text_color"
+            android:text="@string/exhibition_hall"
+            app:layout_constraintTop_toBottomOf="@id/card_view_available_area"
+            app:layout_constraintStart_toStartOf="@id/card_view_available_area"
+            app:layout_constraintEnd_toEndOf="@id/card_view_available_area"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_floating_seat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/many_person"
+            app:layout_constraintTop_toTopOf="@id/tv_floating_seat"
+            app:layout_constraintBottom_toBottomOf="@id/tv_floating_seat"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_middle"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_floating_seat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="11sp"
+            android:textColor="@color/gray_text_color"
+            android:text="@string/floating_seating"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_area_type"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_middle"
+            app:layout_constraintEnd_toEndOf="@id/card_view_available_area"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_seating_space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/seating_space"
+            app:layout_constraintTop_toTopOf="@id/tv_seating_space"
+            app:layout_constraintBottom_toBottomOf="@id/tv_seating_space"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_middle"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_seating_space"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="11sp"
+            android:textColor="@color/gray_text_color"
+            android:text="@string/seating_space"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_floating_seat"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_middle"
+            app:layout_constraintEnd_toEndOf="@id/card_view_available_area"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_shape_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/rectangle_shape"
+            app:layout_constraintTop_toTopOf="@id/tv_shape_type"
+            app:layout_constraintBottom_toBottomOf="@id/tv_shape_type"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_middle"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_shape_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="11sp"
+            android:textColor="@color/gray_text_color"
+            android:text="U Shape"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_seating_space"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_middle"
+            app:layout_constraintEnd_toEndOf="@id/card_view_available_area"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_flour_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/floor_area"
+            app:layout_constraintTop_toTopOf="@id/tv_flour_area"
+            app:layout_constraintBottom_toBottomOf="@id/tv_flour_area"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_middle"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_flour_area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="11sp"
+            android:textColor="@color/gray_text_color"
+            android:text="37 Sqm Floor Area"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_shape_type"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_middle"
+            app:layout_constraintEnd_toEndOf="@id/card_view_available_area"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

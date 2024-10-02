@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/cityLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="5dp">
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kuwait City"
+            android:textSize="16sp"
+            android:textColor="#290347"/>
+        <ImageView
+            android:id="@+id/down_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/down_arrow"
+            android:layout_toRightOf="@id/city"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"/>
+    </RelativeLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:layout_marginStart="@dimen/_10sdp"
+      android:layout_marginEnd="@dimen/_10sdp"
+      android:layout_below="@+id/cityLayout"
+      >
+
+      <com.lmr.app_custom.MyCustomEditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:drawableStart="@drawable/search_city"
+          android:hint="@string/search_for"
+          android:textSize="@dimen/_11ssp"
+          android:paddingStart="@dimen/_10sdp"
+          android:layout_marginEnd="@dimen/_40sdp"
+          android:drawablePadding="@dimen/_10sdp"
+          ></com.lmr.app_custom.MyCustomEditText>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          >
+
+          <com.lmr.app_custom.MyCustomTextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/filter"
+              android:layout_weight="1"
+              android:textColor="@color/white"
+              android:paddingStart="@dimen/_10sdp"
+              android:paddingEnd="@dimen/_10sdp"
+              android:paddingTop="@dimen/_4sdp"
+              android:paddingBottom="@dimen/_4sdp"
+              android:drawableStart="@drawable/filter_icon"
+              android:drawablePadding="@dimen/_5sdp"
+              android:textSize="@dimen/_8ssp"
+              android:background="@drawable/filter_bg"
+              ></com.lmr.app_custom.MyCustomTextView>
+
+          <com.lmr.app_custom.MyCustomTextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="@string/sports1"
+              android:textColor="@color/black"
+              android:paddingStart="@dimen/_10sdp"
+              android:paddingEnd="@dimen/_10sdp"
+              android:layout_marginStart="@dimen/_2sdp"
+              android:layout_marginEnd="@dimen/_2sdp"
+              android:paddingTop="@dimen/_4sdp"
+              android:paddingBottom="@dimen/_4sdp"
+              android:textSize="@dimen/_8ssp"
+              android:background="@drawable/custom_filter_bg"
+              ></com.lmr.app_custom.MyCustomTextView>
+
+          <com.lmr.app_custom.MyCustomTextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="@string/concert"
+              android:textColor="@color/black"
+              android:paddingStart="@dimen/_10sdp"
+              android:paddingEnd="@dimen/_10sdp"
+              android:layout_marginStart="@dimen/_2sdp"
+              android:layout_marginEnd="@dimen/_2sdp"
+              android:paddingTop="@dimen/_4sdp"
+              android:paddingBottom="@dimen/_4sdp"
+              android:textSize="@dimen/_8ssp"
+              android:background="@drawable/custom_filter_bg"
+              ></com.lmr.app_custom.MyCustomTextView>
+
+          <com.lmr.app_custom.MyCustomTextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="@string/sports1"
+              android:textColor="@color/black"
+              android:paddingStart="@dimen/_10sdp"
+              android:paddingEnd="@dimen/_10sdp"
+              android:layout_marginStart="@dimen/_2sdp"
+              android:layout_marginEnd="@dimen/_2sdp"
+              android:paddingTop="@dimen/_4sdp"
+              android:paddingBottom="@dimen/_4sdp"
+              android:textSize="@dimen/_8ssp"
+              android:background="@drawable/custom_filter_bg"
+              ></com.lmr.app_custom.MyCustomTextView>
+
+          <com.lmr.app_custom.MyCustomTextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="@string/sports1"
+              android:textColor="@color/black"
+              android:paddingStart="@dimen/_10sdp"
+              android:paddingEnd="@dimen/_10sdp"
+              android:layout_marginStart="@dimen/_2sdp"
+              android:paddingTop="@dimen/_4sdp"
+              android:paddingBottom="@dimen/_4sdp"
+              android:textSize="@dimen/_8ssp"
+              android:background="@drawable/custom_filter_bg"
+              ></com.lmr.app_custom.MyCustomTextView>
+
+      </LinearLayout>
+
+
+      <RelativeLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/_10sdp"
+          >
+
+          <com.lmr.app_custom.MyCustomTextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="1245 events"
+              android:textSize="@dimen/_10ssp"
+              android:textColor="#290347"
+              ></com.lmr.app_custom.MyCustomTextView>
+
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:layout_alignParentEnd="true"
+              >
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Sort By Relavance"
+                  android:textStyle="bold"
+                  android:textSize="@dimen/_10ssp"
+                  android:textColor="#290347"
+                  ></TextView>
+
+              <ImageView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:src="@drawable/filter_down_arrow"
+                  android:layout_marginStart="@dimen/_20sdp"
+                  android:layout_gravity="center_vertical"
+                  ></ImageView>
+
+          </LinearLayout>
+
+      </RelativeLayout>
+
+      <RelativeLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/_10sdp"
+          >
+
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_alignParentStart="true"
+              >
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/events"
+                  android:textStyle="bold"
+                  android:textSize="@dimen/_12ssp"
+                  android:textColor="#290347"
+                  ></TextView>
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/by_relevance"
+                  android:textStyle="bold"
+                  android:textSize="@dimen/_16ssp"
+                  android:textColor="#c95523"
+                  ></TextView>
+
+          </LinearLayout>
+
+          <ImageView
+              android:layout_width="@dimen/_20sdp"
+              android:layout_height="@dimen/_20sdp"
+             android:src="@drawable/oval"
+              android:layout_alignParentEnd="true"
+              ></ImageView>
+
+      </RelativeLayout>
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recyclerEvent"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/_10sdp"
+          ></androidx.recyclerview.widget.RecyclerView>
+
+  </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Shadow -->
+    <item>
+        <shape
+            android:shape="oval">
+            <gradient
+                android:startColor="@color/top_icon_gray"
+                android:endColor="@color/white"
+                android:angle="-90"/><!-- Shadow color -->
+            <corners android:radius="60dp" />
+        </shape>
+    </item>
+    <!-- Circular Button -->
+    <item
+        android:bottom="4dp"
+        android:left="2dp"
+        android:right="2dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/top_icon_gray" />
+            <size
+                android:width="120dp"
+                android:height="120dp" />
+        </shape>
+    </item>
+</layer-list>
+
+

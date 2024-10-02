@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Add your Bottom Sheet content here -->
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Profile Photo"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:id="@+id/tv_profile_photo"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        ></TextView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relative"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_centerVertical="true"
+                android:background="@color/GREEN"
+                android:id="@+id/iv_camera"
+                android:src="@drawable/picture_image_icon"/>
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/iv_camera"
+                android:layout_marginStart="50dp"
+                android:textSize="20sp"
+                android:id="@+id/tv_camera"
+                android:padding="3sp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                android:layout_marginTop="50dp"
+                android:text="Camera"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/iv_gallery"
+                android:layout_centerVertical="true"
+                android:background="@color/GREEN"
+                android:layout_marginRight="50dp"
+                android:layout_toLeftOf="@+id/iv_camera"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/gallery_icon"/>
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/iv_camera"
+                android:textSize="20sp"
+                android:id="@+id/tv_gallery"
+                android:layout_alignParentRight="true"
+                android:layout_toLeftOf="@+id/tv_camera"
+                android:gravity="center_vertical"
+                android:padding="3sp"
+                android:layout_marginRight="30dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="50dp"
+                android:text="Gallery"/>
+
+            <!-- res/layout/bottom_sheet_layout.xml -->
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Add your Bottom Sheet content here -->
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

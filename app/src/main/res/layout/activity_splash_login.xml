@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_image"
+    tools:context="com.lmr.appmodule.appcommonView.SplashLoginActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/back_arrow"
+        />
+
+    <TextView
+        android:id="@+id/tvwelcometo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:padding="3dp"
+        android:text="Welcome to"
+        android:textColor="@color/white"
+        android:layout_below="@id/back_arrow"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/imejzo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvwelcometo"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="80dp"
+        android:src="@drawable/lamar_logo" />
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imejzo"
+        android:layout_marginTop="100dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/personalTextView"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/circle_shap_allo"
+            android:gravity="center"
+            android:text="PERSONAL"
+            android:textColor="@color/blue"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/businessTextView"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/circle_shap"
+            android:gravity="center"
+            android:text="BUSINESS"
+            android:textColor="@color/grey"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/ll1"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/tvcountry"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="0.60"
+            android:gravity="left|center_vertical"
+            android:text="Country"
+            android:textColor="@color/grey"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvmobileno"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1.40"
+            android:gravity="left|center_vertical"
+            android:text="Mobile Number"
+            android:textColor="@color/grey"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll3"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/ll2"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/countryCodeText"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="0.60"
+            android:gravity="left|center_vertical"
+            android:text="+965(kw)"
+            android:textColor="@color/grey"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/numberEditText"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="30dp"
+            android:inputType="number"
+            android:layout_weight="1.40"
+            android:background="@drawable/text_field_shape"
+            android:gravity="left|center_vertical"
+            android:hint="@string/enter_number"
+            android:textColor="@color/grey"
+            android:textColorHint="@color/grey4"
+            android:textSize="16sp"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="70dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ll3"
+        android:layout_marginLeft="30dp"
+        android:background="@color/grey" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ll3"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_toRightOf="@+id/view1"
+        android:background="@color/grey" />
+
+    <LinearLayout
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:minHeight="50dp"
+        android:layout_below="@id/view2"
+        android:background="@drawable/blue_color_radius"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_right"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            android:textColor="@color/grey"
+            android:textSize="15sp"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imarbitext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/arbitext" />
+
+</RelativeLayout>

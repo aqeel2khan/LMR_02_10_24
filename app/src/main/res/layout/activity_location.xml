@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LocationActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp">
+        <include layout="@layout/custom_toolbar" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/rlHeader"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvlocation"
+                    android:layout_width="126dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/step_4"
+                    android:textColor="@color/redlight"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/tvhelppeople"
+                    android:layout_width="353dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/tvlocation"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/help_people_in_the_area_discover_your_event_and_let_attendees_know_where_to_show_up"
+                    android:textColor="@color/grey2"
+                    android:textSize="13sp"
+                    tools:ignore="RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/tvchooselocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvhelppeople"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/choose_location_on_map_or_type_below"
+                    android:textColor="#4A4A4A"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/ll2"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/tvchooselocation"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvgrandhyatt"
+                        android:layout_width="0dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1.70"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/grand_hyatt_residency_jumairah"
+                        android:textColor="#4A4A4A"
+                        tools:ignore="RtlHardcoded" />
+
+                    <ImageView
+                        android:id="@+id/imiconshap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="0.30"
+                        android:src="@drawable/icon_shap" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_below="@+id/ll2"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@color/grey1" />
+
+                <ImageView
+                    android:id="@+id/imbitmapicon"
+                    android:layout_width="410dp"
+                    android:layout_height="290dp"
+                    android:layout_below="@+id/view4"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/bitmap_icon" />
+
+                <LinearLayout
+                    android:id="@+id/saveAndContinueButtonLocation"
+                    android:layout_width="300dp"
+                    android:layout_height="49dp"
+                    android:layout_below="@+id/imbitmapicon"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_weight="1.50"
+                        android:gravity="center"
+                        android:text="@string/save_amp_continue"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/grey"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="0.50"
+                        android:src="@drawable/icon_right"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/saveAndContinueButtonLocation"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="50dp"
+                    android:gravity="center"
+                    android:text="@string/or"
+                    android:textColor="@color/grey3"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/addLocationLater"
+                    android:layout_width="300dp"
+                    android:layout_height="49dp"
+                    android:layout_marginBottom="50dp"
+                    android:layout_below="@+id/tvor"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_background"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="32dp"
+                        android:layout_weight="1.50"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:text="@string/add_location_later"
+                        android:textColor="@color/grey"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="0.50"
+                        android:src="@drawable/icon_right" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

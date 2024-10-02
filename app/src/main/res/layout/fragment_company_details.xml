@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:background="@drawable/top_bg4x"
+        >
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_margin="@dimen/_10sdp"
+          >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+              android:layout_weight="1"
+            >
+          <LinearLayout
+              android:layout_width="@dimen/_30sdp"
+              android:layout_height="@dimen/_30sdp"
+              android:background="@drawable/circle"
+              android:gravity="center"
+              >
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_arrow_back"
+                android:layout_gravity="center"
+
+                ></ImageView>
+          </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/circle"
+            android:gravity="center"
+            android:layout_marginRight="@dimen/_10sdp"
+
+            >
+          <ImageView
+              android:layout_width="@dimen/_20sdp"
+              android:layout_height="@dimen/_20sdp"
+              android:src="@drawable/like_img_3x"
+              android:layout_gravity="center"
+
+              ></ImageView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/circle"
+            android:gravity="center"
+            >
+          <ImageView
+              android:layout_width="@dimen/_20sdp"
+              android:layout_height="@dimen/_15sdp"
+              android:src="@drawable/more_img3x"
+              android:layout_gravity="center"
+
+              ></ImageView>
+        </LinearLayout>
+
+
+      </LinearLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_170sdp"
+        android:background="@drawable/img_9"
+        android:layout_marginTop="-180dp"
+        >
+      <ImageView
+          android:layout_width="@dimen/_50sdp"
+          android:layout_height="@dimen/_50sdp"
+          android:src="@drawable/box_img3x"
+          android:layout_alignParentRight="true"
+          ></ImageView>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-60dp"
+        >
+      <ImageView
+          android:layout_width="@dimen/_100sdp"
+          android:layout_height="@dimen/_100sdp"
+          android:src="@drawable/eigal_logo"
+          android:layout_centerInParent="true"
+          ></ImageView>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kuwait Oil Company (KOC)"
+        android:textSize="@dimen/_15sdp"
+        android:fontFamily="@font/outfit_medium"
+        android:textColor="@color/black"
+        android:gravity="center"
+        ></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_20sdp"
+        >
+      <LinearLayout
+          android:layout_width="@dimen/_100sdp"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upcoming Events"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/outfit_medium"
+            android:textColor="@color/purple_500"
+            android:gravity="center"
+
+            ></TextView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/purple_500"
+            ></View>
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="@dimen/_100sdp"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Previous Events"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/outfit_medium"
+            android:gravity="center"
+
+            ></TextView>
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            ></View>
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="@dimen/_100sdp"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/outfit_medium"
+            android:gravity="start"
+
+            ></TextView>
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            ></View>
+      </LinearLayout>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/recyler_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_10sdp"
+        >
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/outfit_medium"
+          android:textSize="@dimen/_12sdp"
+          android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu "
+          ></TextView>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Show more"
+          android:textSize="@dimen/_12sdp"
+          android:textColor="@color/purple_500"
+          android:layout_marginTop="@dimen/_20sdp"
+          android:fontFamily="@font/outfit_bold"
+          ></TextView>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Social Links"
+          android:textSize="@dimen/_15sdp"
+          android:layout_marginTop="@dimen/_20sdp"
+          android:fontFamily="@font/outfit_extra_bold"
+          ></TextView>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_marginTop="@dimen/_20sdp"
+          >
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/fb_icon"
+            ></ImageView>
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/twitter_icon"
+            android:layout_marginLeft="@dimen/_10sdp"
+            ></ImageView>
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/instagram_icon"
+            android:layout_marginLeft="@dimen/_10sdp"
+            ></ImageView>
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/linkedin_icon"
+            android:layout_marginLeft="@dimen/_10sdp"
+            ></ImageView>
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/youtube_icon"
+            android:layout_marginLeft="@dimen/_10sdp"
+            ></ImageView>
+      </LinearLayout>
+
+    </LinearLayout>
+  </LinearLayout>
+
+</LinearLayout>

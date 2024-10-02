@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       >
+       <ImageView
+           android:layout_width="@dimen/_90sdp"
+           android:layout_height="@dimen/_85sdp"
+           android:src="@drawable/img_11"
+           android:scaleType="fitXY"
+           ></ImageView>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:layout_marginLeft="@dimen/_10sdp"
+           >
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/outfit_medium"
+               android:layout_marginTop="@dimen/_5sdp"
+               android:text="Jan 23rd 2019, 12 PM  +3 More"></TextView>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="MEGA Event"
+               android:fontFamily="@font/outfit_medium"
+               android:textSize="@dimen/_16sdp"
+               android:layout_marginTop="@dimen/_2sdp"
+               ></TextView>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/outfit_medium"
+               android:layout_marginTop="@dimen/_2sdp"
+               android:text="Kuwait City "></TextView>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:gravity="center_vertical"
+               android:layout_marginTop="@dimen/_5sdp"
+               >
+               <ImageView
+                   android:layout_width="@dimen/_10sdp"
+                   android:layout_height="@dimen/_10sdp"
+                   android:src="@drawable/circle"
+                   ></ImageView>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/outfit_medium"
+                   android:layout_marginLeft="@dimen/_5sdp"
+                   android:layout_weight="1"
+                   android:text="25 People attending"></TextView>
+               <ImageView
+                   android:layout_width="@dimen/_15sdp"
+                   android:layout_height="@dimen/_15sdp"
+                   android:src="@drawable/heart_img"
+                   ></ImageView>
+               <ImageView
+                   android:layout_width="@dimen/_15sdp"
+                   android:layout_height="@dimen/_15sdp"
+                   android:src="@drawable/share_logo"
+                   android:layout_marginLeft="@dimen/_10sdp"
+                   ></ImageView>
+           </LinearLayout>
+
+       </LinearLayout>
+   </LinearLayout>
+</LinearLayout>

@@ -6,6 +6,8 @@ import com.lmr.appmodule.model.LoginResponseModel
 import com.lmr.appmodule.model.request.PostBasicDetailEvent
 import com.lmr.appmodule.model.response.AgeGroupResponse
 import com.lmr.appmodule.createvent.model.EventCategoryModelResponse
+import com.lmr.appmodule.createvent.model.description.EventDescriptionPost
+import com.lmr.appmodule.createvent.model.description.EventDescriptionResponse
 import com.lmr.appmodule.model.response.EventResponse
 import com.lmr.appmodule.model.response.MaximumCapacityModel
 import com.lmr.appmodule.model.response.PostEventResponse
@@ -19,6 +21,9 @@ interface ApiService {
 
     @POST("api/User/VerifyOTP")
     suspend fun verifyOTPApi(@Body jsonObject: JsonObject): LoginResponseModel
+
+    @POST("api/Events/AddDescription")
+    fun postEventDescription(@Body eventDescriptionPost: EventDescriptionPost): EventDescriptionResponse
 
     @GET("api/Events/GetEventCategory")
     suspend fun categoryEventApi(): EventCategoryModelResponse

@@ -10,16 +10,20 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.lmr.R
 import com.lmr.databinding.ActivityEventDescriptionBinding
 import com.lmr.app_utils.MyConstant
+import com.lmr.app_utils.NetworkErrorResult
 import com.lmr.appmodule.BaseActivity
 import com.lmr.appmodule.createvent.viewmodel.BaseViewModel
 //import com.github.dhaval2404.imagepicker.ImagePicker
 import com.lmr.app_utils.PermissionKeys
+import com.lmr.appmodule.createvent.model.description.EventDescriptionPost
 import com.lmr.appmodule.createvent.viewmodel.EventDescriptionViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.io.File
 
 @AndroidEntryPoint
@@ -38,15 +42,82 @@ class EventDescriptionActivity : BaseActivity<ActivityEventDescriptionBinding>()
 
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         binding.saveAndContinueButton.setOnClickListener {
-            startActivity(Intent(this, DateTimeEventCaptureActivity::class.java))
+            postDescriptionData()
+            //startActivity(Intent(this, DateTimeEventCaptureActivity::class.java))
         }
         val detailsTextView = findViewById<TextView>(R.id.detailsTextView)
         detailsTextView.text = "More Details"
 
         requestPermission()
 
+
+
         addImage()
     }
+
+    private fun postDescriptionData() {
+
+      var decriptionData=  binding.etsyedali.text.toString()
+
+        val eventDescriptionPost = EventDescriptionPost(
+            eventDescriptionID = 0,
+            eventID = 211,
+            eventDescriptions = decriptionData
+        )
+        viewModel.   callPostDescription(eventDescriptionPost)
+
+        postDescriptionResponseData()
+
+
+    }
+
+    private fun postDescriptionResponseData() {
+        try {
+            //   showLoader()
+            viewModel.postDescriptionResponse.observe(this){
+                when(it){
+                    is NetworkErrorResult.Success->{
+                        viewModel.postDescriptionResponse.removeObservers(this)
+                        if (viewModel.postDescriptionResponse.hasObservers()) return@observe
+                        //     hideLoader()
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.data
+
+                                if(response?.success == true){
+
+                                  var eventId= response.data.eventID;
+
+                                    startActivity(Intent(this@EventDescriptionActivity, DateTimeEventCaptureActivity::class.java))
+                                }else{
+
+
+                                }
+
+                            }
+                        }
+                    }
+                    is NetworkErrorResult.Error->{
+                        viewModel.postDescriptionResponse.removeObservers(this)
+                        if ( viewModel.postDescriptionResponse.hasObservers()) return@observe
+                        //   hideLoader()
+                        //   snackBarWithRedBackground(binding.root, MyUtils.errorBody(it.message,binding.root.context))
+                    }
+                    is NetworkErrorResult.Loading->{
+                        //  hideLoader()
+                    }
+
+                    else -> {
+
+                    }
+                }
+            }
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
 
     private fun addImage() {
 

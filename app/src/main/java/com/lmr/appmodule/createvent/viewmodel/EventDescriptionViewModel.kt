@@ -7,6 +7,9 @@ import com.lmr.appmodule.model.LoginResponseModel
 import com.lmr.appmodule.repository.EventDescriptionRepository
 import com.lmr.app_utils.NetworkErrorResult
 import com.google.gson.JsonObject
+import com.lmr.appmodule.createvent.model.description.EventDescriptionPost
+import com.lmr.appmodule.createvent.model.description.EventDescriptionResponse
+import com.lmr.appmodule.model.request.PostBasicDetailEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,20 +19,18 @@ class EventDescriptionViewModel @Inject constructor(
     private val userRepo: EventDescriptionRepository
 ) : BaseViewModel() {
 
-    // Login Api
-    var _loginResponse: MutableLiveData<NetworkErrorResult<LoginResponseModel>> = MutableLiveData()
+    var _postDescriptionResponse: MutableLiveData<NetworkErrorResult<EventDescriptionResponse>> = MutableLiveData()
 
     // Create Event Model Response
-    val loginResponse: LiveData<NetworkErrorResult<LoginResponseModel>>
-        get() = _loginResponse
+    val postDescriptionResponse: LiveData<NetworkErrorResult<EventDescriptionResponse>>
+        get() = _postDescriptionResponse
 
-    fun loginApiCall(jsonObject: JsonObject) = viewModelScope.launch {
-        userRepo.loginApi(jsonObject).collect { values ->
-            _loginResponse.value = values
+
+    fun callPostDescription(eventDescriptionPost: EventDescriptionPost) = viewModelScope.launch {
+        userRepo.postDescriptionApi(eventDescriptionPost).collect { result ->
+            _postDescriptionResponse.value = result
         }
     }
 
-    fun callPostEvent(jsonObject: JsonObject) = viewModelScope.launch {
-        userRepo.loginApi(jsonObject)
-    }
+
 }

@@ -10,7 +10,6 @@ import com.lmr.appmodule.createvent.model.adddatetime.AddDateTimeApiResponse
 import com.lmr.appmodule.createvent.model.adddatetime.DateTimeEventPost
 import com.lmr.appmodule.createvent.model.description.EventDescriptionPost
 import com.lmr.appmodule.createvent.model.description.EventDescriptionResponse
-import com.lmr.appmodule.createvent.model.organizerdetail.OrganizerDetailResponse
 import com.lmr.appmodule.createvent.model.organizerdetail.OrganizerTypeResponse
 import com.lmr.appmodule.model.response.EventResponse
 import com.lmr.appmodule.model.response.MaximumCapacityModel

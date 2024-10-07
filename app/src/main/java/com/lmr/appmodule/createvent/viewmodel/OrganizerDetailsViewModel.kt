@@ -6,6 +6,7 @@ import com.lmr.appmodule.model.LoginResponseModel
 import com.lmr.appmodule.repository.OrganizerDetailsRepository
 import com.lmr.app_utils.NetworkErrorResult
 import com.google.gson.JsonObject
+import com.lmr.appmodule.createvent.model.organizerdetail.OrganizerTypeResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,18 +16,19 @@ class OrganizerDetailsViewModel @Inject constructor(
 ): BaseViewModel() {
 
     // Login Api
-    var _loginResponse: MutableLiveData<NetworkErrorResult<LoginResponseModel>> = MutableLiveData()
+    var _organizerTypeResponse: MutableLiveData<NetworkErrorResult<OrganizerTypeResponse>> = MutableLiveData()
 
     // Create Event Model Response
-    val loginResponse: LiveData<NetworkErrorResult<LoginResponseModel>>
-        get() = _loginResponse
+    val organizerTypeResponse: LiveData<NetworkErrorResult<OrganizerTypeResponse>>
+        get() = _organizerTypeResponse
 
-    fun loginApiCall(jsonObject: JsonObject) = viewModelScope.launch {
-        userRepo.addEventOrganizerApi(jsonObject).collect { values ->
-            _loginResponse.value = values
+
+
+    fun fetchOrganizerType() = viewModelScope.launch {
+        userRepo.fetchAllDetails().collect { result ->
+            _organizerTypeResponse.value = result
         }
     }
-    fun callPostEvent(jsonObject: JsonObject) = viewModelScope.launch {
-        userRepo.addEventOrganizerApi(jsonObject)
-    }
+
+
 }

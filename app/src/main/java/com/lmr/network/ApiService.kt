@@ -6,8 +6,12 @@ import com.lmr.appmodule.model.LoginResponseModel
 import com.lmr.appmodule.model.request.PostBasicDetailEvent
 import com.lmr.appmodule.model.response.AgeGroupResponse
 import com.lmr.appmodule.createvent.model.EventCategoryModelResponse
+import com.lmr.appmodule.createvent.model.adddatetime.AddDateTimeApiResponse
+import com.lmr.appmodule.createvent.model.adddatetime.DateTimeEventPost
 import com.lmr.appmodule.createvent.model.description.EventDescriptionPost
 import com.lmr.appmodule.createvent.model.description.EventDescriptionResponse
+import com.lmr.appmodule.createvent.model.organizerdetail.OrganizerDetailResponse
+import com.lmr.appmodule.createvent.model.organizerdetail.OrganizerTypeResponse
 import com.lmr.appmodule.model.response.EventResponse
 import com.lmr.appmodule.model.response.MaximumCapacityModel
 import com.lmr.appmodule.model.response.PostEventResponse
@@ -23,10 +27,17 @@ interface ApiService {
     suspend fun verifyOTPApi(@Body jsonObject: JsonObject): LoginResponseModel
 
     @POST("api/Events/AddDescription")
-    fun postEventDescription(@Body eventDescriptionPost: EventDescriptionPost): EventDescriptionResponse
+    suspend   fun postEventDescription(@Body eventDescriptionPost: EventDescriptionPost): EventDescriptionResponse
+
+    @POST("api/Events/AddDateAndTime")
+    suspend   fun postAddDateTimeEvent(@Body eventDescriptionPost: DateTimeEventPost): AddDateTimeApiResponse
+
 
     @GET("api/Events/GetEventCategory")
     suspend fun categoryEventApi(): EventCategoryModelResponse
+
+    @GET("api/Events/GetEventOrganizerType")
+    suspend fun OrganizerTypeAPi(): OrganizerTypeResponse
 
     @GET("api/Events/GetEventType")
     suspend fun EventTypeApi(): EventResponse

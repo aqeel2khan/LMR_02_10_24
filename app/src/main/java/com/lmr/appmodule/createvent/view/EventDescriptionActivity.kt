@@ -50,8 +50,6 @@ class EventDescriptionActivity : BaseActivity<ActivityEventDescriptionBinding>()
 
         requestPermission()
 
-
-
         addImage()
     }
 
@@ -71,12 +69,15 @@ class EventDescriptionActivity : BaseActivity<ActivityEventDescriptionBinding>()
 
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun postDescriptionResponseData() {
         try {
-            //   showLoader()
+            LoaderUtil.showLoader(this)  // To show loader
             viewModel.postDescriptionResponse.observe(this){
                 when(it){
                     is NetworkErrorResult.Success->{
+                        LoaderUtil.hideLoader(this)  // To
+
                         viewModel.postDescriptionResponse.removeObservers(this)
                         if (viewModel.postDescriptionResponse.hasObservers()) return@observe
                         //     hideLoader()
@@ -98,6 +99,8 @@ class EventDescriptionActivity : BaseActivity<ActivityEventDescriptionBinding>()
                         }
                     }
                     is NetworkErrorResult.Error->{
+                        LoaderUtil.hideLoader(this)  // To
+
                         viewModel.postDescriptionResponse.removeObservers(this)
                         if ( viewModel.postDescriptionResponse.hasObservers()) return@observe
                         //   hideLoader()
@@ -108,6 +111,7 @@ class EventDescriptionActivity : BaseActivity<ActivityEventDescriptionBinding>()
                     }
 
                     else -> {
+                        LoaderUtil.hideLoader(this)  // To
 
                     }
                 }
@@ -115,6 +119,8 @@ class EventDescriptionActivity : BaseActivity<ActivityEventDescriptionBinding>()
 
         } catch (e: Exception) {
             e.printStackTrace()
+            LoaderUtil.hideLoader(this)  // To
+
         }
     }
 

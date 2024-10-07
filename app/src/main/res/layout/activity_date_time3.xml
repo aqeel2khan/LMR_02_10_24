@@ -397,7 +397,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="#092C9F"
-                        android:text="@string/display_start_time"
+                        android:text="@string/display_end_time"
                         android:textColor="#4A4A4A"
                         android:textColorHint="#092C9F"
                         android:textSize="16sp"

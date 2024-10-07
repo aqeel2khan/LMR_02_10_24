@@ -68,14 +68,14 @@ object MyUtils {
 
     fun showLoader(context: Context) {
         try {
-            LoaderFragment.showLoader(( context as FragmentActivity).supportFragmentManager)
+         //   LoaderFragment.showLoader(( context as FragmentActivity).supportFragmentManager)
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
     fun hideLoader(context: Context) {
         try {
-            LoaderFragment.dismissLoader(( context as FragmentActivity).supportFragmentManager)
+        //    LoaderFragment.dismissLoader(( context as FragmentActivity).supportFragmentManager)
         } catch (e: Exception) {
             e.printStackTrace()
         }

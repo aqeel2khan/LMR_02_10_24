@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.lmr.appmodule.home.view.MainActivity
 import com.lmr.app_utils.AppSharedPreferences
-import com.lmr.app_utils.LoaderFragment
 import com.lmr.appmodule.createvent.viewmodel.BaseViewModel
 import javax.inject.Inject
 
@@ -50,14 +49,14 @@ abstract class BaseFragment<B : ViewBinding> : Fragment() {
 
     fun showLoader() {
         try {
-            LoaderFragment.showLoader(requireActivity().supportFragmentManager)
+            //LoaderFragment.showLoader(requireActivity().supportFragmentManager)
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
     fun hideLoader() {
         try {
-            LoaderFragment.dismissLoader(requireActivity().supportFragmentManager)
+          //  LoaderFragment.dismissLoader(requireActivity().supportFragmentManager)
         } catch (e: Exception) {
             e.printStackTrace()
         }

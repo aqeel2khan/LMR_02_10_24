@@ -107,7 +107,9 @@ class BasicDetailsFragment : BaseFragment<ActivityBasicDetailsBinding>() {
         try {
 
                 if (CheckNetworkConnection.isConnection(binding.root.context, binding.root, true)) {
-                viewModel.fetchAllDetails()
+                    LoaderUtil.showLoader(this)
+
+                    viewModel.fetchAllDetails()
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -145,6 +147,7 @@ class BasicDetailsFragment : BaseFragment<ActivityBasicDetailsBinding>() {
                     // Show loading indicator
                 }
                 is NetworkErrorResult.Success -> {
+                    LoaderUtil.hideLoader(this)
                     // Update UI with fetched details
                     val allDetails = response.data
 
@@ -155,6 +158,7 @@ class BasicDetailsFragment : BaseFragment<ActivityBasicDetailsBinding>() {
                     // Use allDetails to update your UI components
                 }
                 is NetworkErrorResult.Error -> {
+                    LoaderUtil.hideLoader(this)
                     // Show error message
                     Toast.makeText(requireContext(), response.message, Toast.LENGTH_SHORT).show()
                 }
@@ -273,7 +277,7 @@ class BasicDetailsFragment : BaseFragment<ActivityBasicDetailsBinding>() {
 
     private fun PostEventResponseData() {
             try {
-                    //   showLoader()
+                      // showLoader()
                     viewModel.postEventResponse.observe(this){
                         when(it){
                             is NetworkErrorResult.Success->{

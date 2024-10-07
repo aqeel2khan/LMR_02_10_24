@@ -15,6 +15,8 @@
     <string name="end_time">End Time</string>
     <string name="_13_june_2018">13 June 2018</string>
     <string name="display_start_time">Display start time</string>
+    <string name="display_end_time">Display end time</string>
+
     <string name="the_start_time_of_your_event_will_be_displayed_to_attendees">The start time of your event will be displayed to attendees</string>
     <string name="add_more_date">+ Add More Date</string>
     <string name="save_amp_continue"><![CDATA[SAVE & CONTINUE]]></string>

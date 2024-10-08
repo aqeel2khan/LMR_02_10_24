@@ -77,7 +77,7 @@
                         tools:ignore="RtlHardcoded" />
 
                     <TextView
-                        android:id="@+id/tvsyedali"
+                        android:id="@+id/etOrganigerName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left|center"
@@ -177,11 +177,10 @@
                         android:background="@drawable/form_shape"
                         android:orientation="vertical"
                         android:padding="10dp"
-
                         >
 
                         <EditText
-                            android:id="@+id/etsyedali"
+                            android:id="@+id/etOrganizerDetail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="2dp"
@@ -232,7 +231,7 @@
                         >
 
                         <EditText
-                            android:id="@+id/etsyedali1"
+                            android:id="@+id/etOrganizerAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="2dp"
@@ -289,6 +288,7 @@
                                 tools:ignore="RtlHardcoded" />
 
                             <ImageView
+                                android:id="@+id/ivPreview"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:layout_alignParentEnd="true"
@@ -374,6 +374,7 @@
 
 
                         <EditText
+                            android:id="@+id/etTeamName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -397,6 +398,7 @@
                         android:orientation="vertical">
 
                         <EditText
+                            android:id="@+id/etTeamLastName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -425,6 +427,7 @@
                     android:orientation="vertical">
 
                     <EditText
+                        android:id="@+id/etTeamNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"

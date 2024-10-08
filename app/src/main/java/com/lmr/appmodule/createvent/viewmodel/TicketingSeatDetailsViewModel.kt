@@ -6,6 +6,7 @@ import com.lmr.appmodule.model.LoginResponseModel
 import com.lmr.appmodule.repository.TicketingSeatDetailsRepository
 import com.lmr.app_utils.NetworkErrorResult
 import com.google.gson.JsonObject
+import com.lmr.appmodule.createvent.model.organizerdetail.PostEventOrganizerData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -29,4 +30,14 @@ class TicketingSeatDetailsViewModel @Inject constructor(
     fun callPostEvent(jsonObject: JsonObject) = viewModelScope.launch {
         userRepo.addTicketDetailsApi(jsonObject)
     }
+
+    //callPostOrganizerAPI
+
+    fun callPostOrganizerAPI(eventDescriptionPost: PostEventOrganizerData) = viewModelScope.launch {
+        userRepo.addTicketingDetailsApi(eventDescriptionPost).collect { result ->
+          //  _organizerpostResponse.value = result
+        }
+    }
+
+
 }

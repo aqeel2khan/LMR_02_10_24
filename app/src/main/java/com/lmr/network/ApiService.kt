@@ -11,6 +11,7 @@ import com.lmr.appmodule.createvent.model.adddatetime.DateTimeEventPost
 import com.lmr.appmodule.createvent.model.description.EventDescriptionPost
 import com.lmr.appmodule.createvent.model.description.EventDescriptionResponse
 import com.lmr.appmodule.createvent.model.organizerdetail.OrganizerTypeResponse
+import com.lmr.appmodule.createvent.model.organizerdetail.PostEventOrganizerData
 import com.lmr.appmodule.model.response.EventResponse
 import com.lmr.appmodule.model.response.MaximumCapacityModel
 import com.lmr.appmodule.model.response.PostEventResponse
@@ -27,6 +28,10 @@ interface ApiService {
 
     @POST("api/Events/AddDescription")
     suspend   fun postEventDescription(@Body eventDescriptionPost: EventDescriptionPost): EventDescriptionResponse
+
+    @POST("api/Events/AddEventOrganizer")
+    suspend   fun postOrganizer(@Body eventDescriptionPost: PostEventOrganizerData): EventDescriptionResponse
+
 
     @POST("api/Events/AddDateAndTime")
     suspend   fun postAddDateTimeEvent(@Body eventDescriptionPost: DateTimeEventPost): AddDateTimeApiResponse

@@ -1,82 +1,51 @@
 package com.lmr.appmodule.createvent.view
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
+import android.os.Build
 import android.text.TextUtils
+import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.lmr.R
+import com.lmr.app_custom.ImageResizeCallback
+import com.lmr.app_utils.MyUtils
+import com.lmr.app_utils.NetworkErrorResult
+import com.lmr.app_utils.camera.ImagePickerActivity
+import com.lmr.app_utils.camera.ImagePickerActivity.INTENT_IMAGE_PICKER_OPTION
+import com.lmr.app_utils.camera.ImagePickerActivity.INTENT_LOCK_ASPECT_RATIO
 import com.lmr.databinding.ActivityTickeetingSeatDetails1Binding
 import com.lmr.appmodule.BaseActivity
+import com.lmr.appmodule.createvent.model.organizerdetail.PostEventOrganizerData
+import com.lmr.appmodule.createvent.model.organizerdetail.TeamMemberOrganizer
 import com.lmr.appmodule.createvent.viewmodel.BaseViewModel
 import com.lmr.appmodule.createvent.viewmodel.TicketingSeatDetailsViewModel
+import com.yalantis.ucrop.UCrop
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import java.io.File
 import java.util.Calendar
+//import com.yalantis.ucrop.UCrop
+
 @AndroidEntryPoint
 
 @Suppress("UNREACHABLE_CODE")
 class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Binding>() {
+    private var freeStatus: Boolean =true
+
     private val viewModel: TicketingSeatDetailsViewModel by viewModels()
-    private fun openCalendar2() {
-        val datePickerDialog = DatePickerDialog(
-            this,
-            { _, year, month, dayOfMonth ->
-                val date = "$dayOfMonth/$year/$month"
-                binding.ticketSalesStartDateText.text = date
-            },
-            Calendar.getInstance()[Calendar.YEAR],
-            Calendar.getInstance()[Calendar.MONTH],
-            Calendar.getInstance()[Calendar.DAY_OF_MONTH]
-        )
-        datePickerDialog.show()
-    }
-
-    private fun openCalendar3() {
-        val datePickerDialog = DatePickerDialog(
-            this,
-            { _, year, month, dayOfMonth ->
-                val date = "$dayOfMonth/$year/$month"
-                binding.endDateSaleTextView.text = date
-            },
-            Calendar.getInstance()[Calendar.YEAR],
-            Calendar.getInstance()[Calendar.MONTH],
-            Calendar.getInstance()[Calendar.DAY_OF_MONTH]
-        )
-        datePickerDialog.show()
-    }
-
-
-    private fun showTimeDialog4() {
-        val timePickerDialog = TimePickerDialog(
-            this,
-            { _, hourOfDay, minute ->
-                val date = "$hourOfDay-$minute"
-                binding.endTimeSaleTextView.text = date
-            },
-            0,
-            0,
-            true
-        )
-        timePickerDialog.show()
-    }
-
-    private fun showTimeDialog3() {
-        val timePickerDialog = TimePickerDialog(
-            this,
-            { _, hourOfDay, minute ->
-                val date = "$hourOfDay-$minute"
-                binding.salesStarTimeTextView.text = date
-            },
-            0,
-            0,
-            true
-        )
-        timePickerDialog.show()
-    }
+    private lateinit var mListener: ImageResizeCallback
 
 
     private fun validation(): Boolean {
@@ -136,10 +105,12 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
         val detailsTextView = findViewById<TextView>(R.id.detailsTextView)
         detailsTextView.text = "Ticketing/Seating"
         binding.tvFreeText.setOnClickListener {
+            freeStatus= true
             binding.tvFreeText.setBackgroundResource(R.drawable.circel_shep_white)
             binding.tvPaidText.setBackgroundResource(R.drawable.circle_shap_allo)
         }
         binding.tvPaidText.setOnClickListener {
+            freeStatus= false
             binding.tvFreeText.setBackgroundResource(R.drawable.circle_shap_allo)
             binding.tvPaidText.setBackgroundResource(R.drawable.circel_shep_white)
         }
@@ -164,5 +135,153 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
 //            }
         }
     }
+
+
+/*
+    private fun postTicketimgSeat() {
+        var organigerName=  binding.etOrganigerName.text.toString()
+        var OrganizerDetail=  binding.etOrganizerDetail.text.toString()
+        var etOrganizerAddress =  binding.etOrganizerAddress.text.toString()
+        var mTeamName = binding.etTeamName.text.toString()
+        var mTeamLastName = binding.etTeamLastName.text.toString()
+        var mTeamNumber = binding.etTeamNumber.text.toString()
+
+        val teamMembers = listOf(
+            TeamMemberOrganizer(teamMemberID = 0, firstName = mTeamName, lastName = mTeamLastName, mobileNumber = mTeamNumber)
+        )
+
+        val postEventOrganizerData = PostEventOrganizerData(
+            eventOrganizerID = 0,
+            eventID = 231,
+            eventOrganizerName = organigerName,
+            eventOrganizerTypeID = 1,
+            aboutOrganizer = OrganizerDetail,
+            organizerAddress = etOrganizerAddress,
+            profileImage = "",
+            lstteammember = teamMembers
+        )
+        viewModel.   callPostOrganizerAPI(postEventOrganizerData)
+       // observerPostResponseData()
+    }
+*/
+
+
+    @SuppressLint("SuspiciousIndentation")
+/*
+    private fun observerPostResponseData() {
+        try {
+            LoaderUtil.showLoader(this)  // To show loader
+            viewModel.organizerpostResponse.observe(this){
+                when(it){
+                    is NetworkErrorResult.Success->{
+                        LoaderUtil.hideLoader(this)  // To
+
+                        viewModel.organizerpostResponse.removeObservers(this)
+                        if (viewModel.organizerpostResponse.hasObservers()) return@observe
+                        //     hideLoader()
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.data
+
+                                if(response?.success == true){
+
+                                    var eventId= response.data.eventID;
+
+                                    startActivity(Intent(this@EventOrganizerDetailsActivity, EventBookDateSeatActivity::class.java))
+                                }else{
+
+
+                                }
+
+                            }
+                        }
+                    }
+                    is NetworkErrorResult.Error->{
+                        LoaderUtil.hideLoader(this)  // To
+
+                        viewModel.organizerpostResponse.removeObservers(this)
+                        if ( viewModel.organizerpostResponse.hasObservers()) return@observe
+                        //   hideLoader()
+                        //   snackBarWithRedBackground(binding.root, MyUtils.errorBody(it.message,binding.root.context))
+                    }
+                    is NetworkErrorResult.Loading->{
+                        //  hideLoader()
+                    }
+
+                    else -> {
+                        LoaderUtil.hideLoader(this)  // To
+
+                    }
+                }
+            }
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+            LoaderUtil.hideLoader(this)  // To
+
+        }
+    }
+*/
+
     override fun getViewBinding() = ActivityTickeetingSeatDetails1Binding.inflate(layoutInflater)
+
+
+    private fun openCalendar2() {
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, year, month, dayOfMonth ->
+                val date = "$dayOfMonth/$year/$month"
+                binding.ticketSalesStartDateText.text = date
+            },
+            Calendar.getInstance()[Calendar.YEAR],
+            Calendar.getInstance()[Calendar.MONTH],
+            Calendar.getInstance()[Calendar.DAY_OF_MONTH]
+        )
+        datePickerDialog.show()
+    }
+
+    private fun openCalendar3() {
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, year, month, dayOfMonth ->
+                val date = "$dayOfMonth/$year/$month"
+                binding.endDateSaleTextView.text = date
+            },
+            Calendar.getInstance()[Calendar.YEAR],
+            Calendar.getInstance()[Calendar.MONTH],
+            Calendar.getInstance()[Calendar.DAY_OF_MONTH]
+        )
+        datePickerDialog.show()
+    }
+
+
+    private fun showTimeDialog4() {
+        val timePickerDialog = TimePickerDialog(
+            this,
+            { _, hourOfDay, minute ->
+                val date = "$hourOfDay-$minute"
+                binding.endTimeSaleTextView.text = date
+            },
+            0,
+            0,
+            true
+        )
+        timePickerDialog.show()
+    }
+
+    private fun showTimeDialog3() {
+        val timePickerDialog = TimePickerDialog(
+            this,
+            { _, hourOfDay, minute ->
+                val date = "$hourOfDay-$minute"
+                binding.salesStarTimeTextView.text = date
+            },
+            0,
+            0,
+            true
+        )
+        timePickerDialog.show()
+    }
+
+
 }

@@ -54,19 +54,14 @@ class EventDescriptionActivity : BaseActivity<ActivityEventDescriptionBinding>()
     }
 
     private fun postDescriptionData() {
-
       var decriptionData=  binding.etsyedali.text.toString()
-
         val eventDescriptionPost = EventDescriptionPost(
             eventDescriptionID = 0,
             eventID = 211,
             eventDescriptions = decriptionData
         )
         viewModel.   callPostDescription(eventDescriptionPost)
-
         postDescriptionResponseData()
-
-
     }
 
     @SuppressLint("SuspiciousIndentation")

@@ -16,6 +16,16 @@
     <string name="_13_june_2018">13 June 2018</string>
     <string name="display_start_time">Display start time</string>
     <string name="display_end_time">Display end time</string>
+    <string name="toast_image_intent_null">Image picker option is missing!</string>
+
+    <string name="lbl_set_profile_photo">Set profile image</string>
+    <string name="lbl_take_camera_picture">Take a picture</string>
+    <string name="lbl_choose_from_gallery">Choose from gallery</string>
+    <string name="finish">Finish</string>
+    <string name="upload_from_gallery">Upload from Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="txt_notifications">Notifications</string>
+    <string name="txt_information">Information</string>
 
     <string name="the_start_time_of_your_event_will_be_displayed_to_attendees">The start time of your event will be displayed to attendees</string>
     <string name="add_more_date">+ Add More Date</string>

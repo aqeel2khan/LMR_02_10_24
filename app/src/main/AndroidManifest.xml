@@ -91,6 +91,19 @@
             android:exported="false" />
 
 
+        <activity
+            android:name=".app_utils.camera.ImagePickerActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            />
+
+
 <!--        <activity-->
 <!--            android:name="com.example.batchfinal.com.lmr.appmodule.createvent.viewfrag.BasicDetailsFragment"-->
 <!--            android:theme="@style/Theme.LMR_ActionBar"-->

@@ -4,7 +4,10 @@ import com.lmr.appmodule.model.LoginResponseModel
 import com.lmr.network.ApiService
 import com.lmr.app_utils.NetworkErrorResult
 import com.google.gson.JsonObject
+import com.lmr.appmodule.createvent.model.description.EventDescriptionPost
+import com.lmr.appmodule.createvent.model.description.EventDescriptionResponse
 import com.lmr.appmodule.createvent.model.organizerdetail.OrganizerTypeResponse
+import com.lmr.appmodule.createvent.model.organizerdetail.PostEventOrganizerData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -34,14 +37,25 @@ class OrganizerDetailsRepository @Inject constructor(private val apiService: Api
                 throw Exception("Category Event API failed")
             }
 
-
-
-
-
             emit(NetworkErrorResult.Success(categoryResponse))
         } catch (e: Exception) {
             emit(NetworkErrorResult.Error(e.message ?: "An unexpected error occurred"))
         }
     }.flowOn(Dispatchers.IO)
+
+    suspend fun postOrganizerApi(mPostBasicDetailEvent: PostEventOrganizerData): Flow<NetworkErrorResult<EventDescriptionResponse>> =
+        flow {
+            emit(NetworkErrorResult.Loading())
+            try {
+                val response = apiService.postOrganizer(mPostBasicDetailEvent)
+                if (response.success) {
+                    emit(NetworkErrorResult.Success(response))
+                } else {
+                    emit(NetworkErrorResult.Error("Post Event API failed"))
+                }
+            } catch (e: Exception) {
+                emit(NetworkErrorResult.Error(e.message ?: "An unexpected error occurred"))
+            }
+        }.flowOn(Dispatchers.IO)
 
 }

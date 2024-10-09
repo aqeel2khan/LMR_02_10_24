@@ -79,6 +79,8 @@ class EventOrganizerDetailsActivity : BaseActivity<ActivityOrganigerDetailsBindi
         setSupportActionBar(toolbar)
 
         supportActionBar!!.setDisplayShowTitleEnabled(false)
+
+        mListener = this
         binding.saveAndContinueButtonOrganiger.setOnClickListener {
             postOrganizerData()
          //   startActivity(Intent(this, EventBookDateSeatActivity::class.java))

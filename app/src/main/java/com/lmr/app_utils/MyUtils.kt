@@ -30,7 +30,14 @@ import androidx.fragment.app.FragmentActivity
 import com.lmr.R
 import com.lmr.app_custom.ImageResizeCallback
 import com.lmr.app_utils.PermissionKeys.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE
+import com.lmr.app_utils.camera.URIPathHelper
 import id.zelory.compressor.Compressor
+import id.zelory.compressor.constraint.format
+import id.zelory.compressor.constraint.quality
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 import org.json.JSONObject
@@ -55,7 +62,7 @@ object MyUtils {
     var passwordNotVisible = 0
     var newPasswordNotVisible = 0
     var confirmPasswordNotVisible = 0
-
+    private var compressedFile: File? = null
     private var encodedBase64 = ""
     private lateinit var mListenerImageResizeCallback: ImageResizeCallback
     fun isValidEmail(email: String?): Boolean? {
@@ -301,44 +308,58 @@ object MyUtils {
         }
     }
 
-
     fun getResizedImageBase64String(
         activity: Activity?,
         imgFile: File?,
         mListener: ImageResizeCallback,
         ctx: Context
     ) {
-       /* try {
-            encodedBase64 = ""
-            mListenerImageResizeCallback = mListener
+        // Ensure that the activity and imgFile are not null before proceeding
+        if (activity == null || imgFile == null) {
+            mListener.onFailure("Activity or image file is null")
+            return
+        }
 
-            Compressor.getDefault(activity)
-                .compressToFileAsObservable(imgFile)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    compressedFile = it.absoluteFile
-                    val myBit = BitmapFactory.decodeFile(compressedFile!!.absolutePath)
-                    val streams = ByteArrayOutputStream()
-                    val scaleBitmap=    myBit.compress(Bitmap.CompressFormat.PNG, 100, streams)
-                    val mCompressbyteArray = streams.toByteArray()
-                    encodedBase64 = Base64.encodeToString(mCompressbyteArray, Base64.DEFAULT)
-
-                    val addressImageUri: Uri = URIPathHelper().getImageUri(ctx, myBit)
-                    val profileImgPath= URIPathHelper().getPath(ctx,addressImageUri).toString()
-                    //returning base64
-                    //  mListenerImageResizeCallback.onSuccess(encodedBase64, myBit, compressedFile)
-                    //returning path
-                    mListenerImageResizeCallback.onSuccess(profileImgPath, myBit, compressedFile)
-
+        // Start a coroutine on the Main thread
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                // Compress the image file in an IO thread
+                val compressedFile = withContext(Dispatchers.IO) {
+                    Compressor.compress(ctx, imgFile) {
+                        quality(75)
+                        format(Bitmap.CompressFormat.JPEG)
+                        // Add other configurations if needed
+                    }
                 }
-                ) {
-                    mListenerImageResizeCallback.onFailure(it.message)
+
+                // Decode the compressed file into a Bitmap
+                val myBit = BitmapFactory.decodeFile(compressedFile.absolutePath)
+                if (myBit == null) {
+                    mListener.onFailure("Failed to decode compressed image")
+                    return@launch
                 }
-        } catch (e: java.lang.Exception) {
-            mListenerImageResizeCallback.onFailure(e.message)
-            e.printStackTrace()
-        }*/
+
+                // Compress the Bitmap into a byte array
+                val streams = ByteArrayOutputStream()
+                val isCompressed = myBit.compress(Bitmap.CompressFormat.PNG, 100, streams)
+                if (!isCompressed) {
+                    mListener.onFailure("Bitmap compression failed")
+                    return@launch
+                }
+                val mCompressByteArray = streams.toByteArray()
+             //   val encodedBase64 = Base64.getEncoder().encodeToString(mCompressByteArray)
+
+                // Obtain the URI and path of the image
+                val addressImageUri: Uri = URIPathHelper().getImageUri(ctx, myBit)
+                val profileImgPath = URIPathHelper().getPath(ctx, addressImageUri).toString()
+
+                // Callback with the result
+                mListener.onSuccess(profileImgPath, myBit, compressedFile)
+            } catch (e: Exception) {
+                // Handle any errors during compression
+                mListener.onFailure(e.message)
+            }
+        }
     }
 
 

@@ -15,28 +15,20 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.lmr.R
 import com.lmr.app_custom.ImageResizeCallback
-import com.lmr.app_utils.MyUtils
 import com.lmr.app_utils.NetworkErrorResult
-import com.lmr.app_utils.camera.ImagePickerActivity
-import com.lmr.app_utils.camera.ImagePickerActivity.INTENT_IMAGE_PICKER_OPTION
-import com.lmr.app_utils.camera.ImagePickerActivity.INTENT_LOCK_ASPECT_RATIO
 import com.lmr.databinding.ActivityTickeetingSeatDetails1Binding
 import com.lmr.appmodule.BaseActivity
+import com.lmr.appmodule.createvent.model.eventbookdateseat.EventBookingRequest
 import com.lmr.appmodule.createvent.model.organizerdetail.PostEventOrganizerData
 import com.lmr.appmodule.createvent.model.organizerdetail.TeamMemberOrganizer
 import com.lmr.appmodule.createvent.viewmodel.BaseViewModel
-import com.lmr.appmodule.createvent.viewmodel.TicketingSeatDetailsViewModel
-import com.yalantis.ucrop.UCrop
+import com.lmr.appmodule.createvent.viewmodel.EventDateSeatViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.io.File
 import java.util.Calendar
-//import com.yalantis.ucrop.UCrop
 
 @AndroidEntryPoint
 
@@ -44,7 +36,7 @@ import java.util.Calendar
 class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Binding>() {
     private var freeStatus: Boolean =true
 
-    private val viewModel: TicketingSeatDetailsViewModel by viewModels()
+    private val viewModel: EventDateSeatViewModel by viewModels()
     private lateinit var mListener: ImageResizeCallback
 
 
@@ -129,55 +121,66 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
             showTimeDialog4()
         }
         binding.saveAndContinueButtonSeat.setOnClickListener {
-            startActivity(Intent(this, EventTicketingSeatActivity::class.java))
-//            val checkStatus = validation()
-//            if (checkStatus) {
-//            }
+          //  startActivity(Intent(this, EventTicketingSeatActivity::class.java))
+            val checkStatus = validation()
+            if (checkStatus) {
+
+                postTicketimgSeat()
+            }
         }
     }
 
 
-/*
     private fun postTicketimgSeat() {
-        var organigerName=  binding.etOrganigerName.text.toString()
-        var OrganizerDetail=  binding.etOrganizerDetail.text.toString()
-        var etOrganizerAddress =  binding.etOrganizerAddress.text.toString()
-        var mTeamName = binding.etTeamName.text.toString()
-        var mTeamLastName = binding.etTeamLastName.text.toString()
-        var mTeamNumber = binding.etTeamNumber.text.toString()
 
-        val teamMembers = listOf(
-            TeamMemberOrganizer(teamMemberID = 0, firstName = mTeamName, lastName = mTeamLastName, mobileNumber = mTeamNumber)
+    //
+       val saleEndTime = binding.endTimeSaleTextView.text.toString()
+        val vipSeat = binding.vipSeatsTextView.text.toString()
+        val quantity = binding.quantityEditText.text.toString()
+        val saleEndDate = binding.endTimeSaleTextView.text.toString()
+        val salStartDate = binding.tvTicketSalesStartDate.text.toString()
+        val salStarTime = binding.salesStarTimeTextView.text.toString()
+        val endDateSale = binding.endDateSaleTextView.text.toString()
+        val endTimeSale = binding.endTimeSaleTextView.text.toString()
+
+        var postFreestatus =0
+        if(freeStatus){
+            postFreestatus= 0
+
+        }else{
+            postFreestatus=1
+        }
+
+    //
+
+        val eventBookingRequest = EventBookingRequest(
+            seatDetailsID = 0,
+            eventID = 264,
+            eventPaidType = postFreestatus,
+            bookingStartDate = salStartDate,
+            bookingEndDate = saleEndDate,
+            bookingStartTime = salStarTime ,
+            bookingEndTime =endTimeSale,
+            lstTicketBookingDetailRequest = arrayListOf()
         )
 
-        val postEventOrganizerData = PostEventOrganizerData(
-            eventOrganizerID = 0,
-            eventID = 231,
-            eventOrganizerName = organigerName,
-            eventOrganizerTypeID = 1,
-            aboutOrganizer = OrganizerDetail,
-            organizerAddress = etOrganizerAddress,
-            profileImage = "",
-            lstteammember = teamMembers
-        )
-        viewModel.   callPostOrganizerAPI(postEventOrganizerData)
-       // observerPostResponseData()
+
+        viewModel.   callEventbookDateSeatAPI(eventBookingRequest)
+        observerPostResponseData()
     }
-*/
 
 
     @SuppressLint("SuspiciousIndentation")
-/*
     private fun observerPostResponseData() {
         try {
             LoaderUtil.showLoader(this)  // To show loader
-            viewModel.organizerpostResponse.observe(this){
+            viewModel._eventDescriptionResponse.observe(this){
                 when(it){
                     is NetworkErrorResult.Success->{
                         LoaderUtil.hideLoader(this)  // To
 
-                        viewModel.organizerpostResponse.removeObservers(this)
-                        if (viewModel.organizerpostResponse.hasObservers()) return@observe
+                        viewModel._eventDescriptionResponse.removeObservers(this)
+                        if (viewModel._eventDescriptionResponse.hasObservers()) return@observe
                         //     hideLoader()
                         lifecycleScope.launch {
                             it.let {
@@ -187,7 +190,7 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
 
                                     var eventId= response.data.eventID;
 
-                                    startActivity(Intent(this@EventOrganizerDetailsActivity, EventBookDateSeatActivity::class.java))
+                                    startActivity(Intent(this@EventBookDateSeatActivity, EventTicketingSeatActivity::class.java))
                                 }else{
 
 
@@ -199,8 +202,8 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
                     is NetworkErrorResult.Error->{
                         LoaderUtil.hideLoader(this)  // To
 
-                        viewModel.organizerpostResponse.removeObservers(this)
-                        if ( viewModel.organizerpostResponse.hasObservers()) return@observe
+                        viewModel._eventDescriptionResponse.removeObservers(this)
+                        if ( viewModel._eventDescriptionResponse.hasObservers()) return@observe
                         //   hideLoader()
                         //   snackBarWithRedBackground(binding.root, MyUtils.errorBody(it.message,binding.root.context))
                     }
@@ -221,7 +224,6 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
 
         }
     }
-*/
 
     override fun getViewBinding() = ActivityTickeetingSeatDetails1Binding.inflate(layoutInflater)
 

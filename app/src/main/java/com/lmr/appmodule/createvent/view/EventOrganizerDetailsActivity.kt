@@ -29,15 +29,12 @@ import com.lmr.app_utils.camera.ImagePickerActivity
 import com.lmr.databinding.ActivityOrganigerDetailsBinding
 import com.lmr.appmodule.BaseActivity
 import com.lmr.appmodule.appcommonView.BottomSheetFragment
-import com.lmr.appmodule.createvent.model.EventCategory
-import com.lmr.appmodule.createvent.model.description.EventDescriptionPost
 import com.lmr.appmodule.createvent.model.organizerdetail.EventOrganizerTypeData
 import com.lmr.appmodule.createvent.model.organizerdetail.PostEventOrganizerData
 import com.lmr.appmodule.createvent.model.organizerdetail.TeamMemberOrganizer
 
 import com.lmr.appmodule.createvent.viewmodel.BaseViewModel
 import com.lmr.appmodule.createvent.viewmodel.OrganizerDetailsViewModel
-import com.lmr.databinding.ActivityTickeetingSeatDetails1Binding
 import com.yalantis.ucrop.UCrop
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -47,6 +44,8 @@ import java.io.File
 class EventOrganizerDetailsActivity : BaseActivity<ActivityOrganigerDetailsBinding>(),
     ImageResizeCallback {
 
+    private var fileImage: File? = null
+    private var imagePathShow: String?= null
     private val REQUEST_IMAGE = 100
     private val SAMPLE_CROPPED_IMAGE_NAME = "BatchImage"
     private val requestMode = 1
@@ -178,10 +177,10 @@ class EventOrganizerDetailsActivity : BaseActivity<ActivityOrganigerDetailsBindi
             eventOrganizerTypeID = 1,
             aboutOrganizer = OrganizerDetail,
             organizerAddress = etOrganizerAddress,
-            profileImage = "",
+            profileImage = imagePathShow?:"",
             lstteammember = teamMembers
         )
-        viewModel.   callPostOrganizerAPI(postEventOrganizerData)
+        viewModel.   callPostOrganizerAPI(postEventOrganizerData,fileImage)
         observerPostResponseData()
     }
 
@@ -421,6 +420,9 @@ class EventOrganizerDetailsActivity : BaseActivity<ActivityOrganigerDetailsBindi
         //requestUpdateProfileImg
         // mViewModel.requestProfileImgUpdate(imagePath.toString(), sessionManager.getUserToken())
         if(imagePath!=null){
+
+            imagePathShow = imagePath
+            fileImage = file
 
             Glide.with(this)
                 .load(imagePath)

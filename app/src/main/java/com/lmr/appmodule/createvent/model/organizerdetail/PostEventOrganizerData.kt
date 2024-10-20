@@ -9,7 +9,7 @@ data class PostEventOrganizerData(
     @SerializedName("eventOrganizerTypeID") val eventOrganizerTypeID: Int,
     @SerializedName("aboutOrganizer") val aboutOrganizer: String,
     @SerializedName("organizerAddress") val organizerAddress: String,
-    @SerializedName("profileImage") val profileImage: String,
+    @SerializedName("profileImage") var profileImage: String,
     @SerializedName("lstteammember") val lstteammember: List<TeamMemberOrganizer>
 )
 

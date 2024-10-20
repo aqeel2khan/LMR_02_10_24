@@ -10,14 +10,19 @@ import com.lmr.appmodule.createvent.model.adddatetime.AddDateTimeApiResponse
 import com.lmr.appmodule.createvent.model.adddatetime.DateTimeEventPost
 import com.lmr.appmodule.createvent.model.description.EventDescriptionPost
 import com.lmr.appmodule.createvent.model.description.EventDescriptionResponse
+import com.lmr.appmodule.createvent.model.eventbookdateseat.EventBookingRequest
 import com.lmr.appmodule.createvent.model.organizerdetail.OrganizerTypeResponse
 import com.lmr.appmodule.createvent.model.organizerdetail.PostEventOrganizerData
 import com.lmr.appmodule.model.response.EventResponse
 import com.lmr.appmodule.model.response.MaximumCapacityModel
 import com.lmr.appmodule.model.response.PostEventResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.Part
 
 interface ApiService {
     @GET("api/User")
@@ -32,6 +37,21 @@ interface ApiService {
     @POST("api/Events/AddEventOrganizer")
     suspend   fun postOrganizer(@Body eventDescriptionPost: PostEventOrganizerData): EventDescriptionResponse
 
+    @POST("api/Events/AddSeatDetails")
+    suspend   fun postEventBookDateSeat(@Body eventDescriptionPost: EventBookingRequest): EventDescriptionResponse
+
+    @Multipart
+    @POST("api/Events/AddEventOrganizer")
+    suspend fun postAddEventOrganizer(
+        @Part("eventOrganizerID") eventOrganizerID: RequestBody,
+        @Part("eventID") eventID: RequestBody,
+        @Part("eventOrganizerName") eventOrganizerName: RequestBody,
+        @Part("eventOrganizerTypeID") eventOrganizerTypeID: RequestBody,
+        @Part("aboutOrganizer") aboutOrganizer: RequestBody,
+        @Part("organizerAddress") organizerAddress: RequestBody,
+        @Part profileImage: MultipartBody.Part,
+        @Part("lstteammember") lstteammember: RequestBody
+    ): EventDescriptionResponse
 
     @POST("api/Events/AddDateAndTime")
     suspend   fun postAddDateTimeEvent(@Body eventDescriptionPost: DateTimeEventPost): AddDateTimeApiResponse

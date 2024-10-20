@@ -1,17 +1,17 @@
 package com.lmr.appmodule.createvent.viewmodel
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.lmr.appmodule.model.LoginResponseModel
 import com.lmr.appmodule.repository.OrganizerDetailsRepository
 import com.lmr.app_utils.NetworkErrorResult
-import com.google.gson.JsonObject
-import com.lmr.appmodule.createvent.model.description.EventDescriptionPost
 import com.lmr.appmodule.createvent.model.description.EventDescriptionResponse
 import com.lmr.appmodule.createvent.model.organizerdetail.OrganizerTypeResponse
 import com.lmr.appmodule.createvent.model.organizerdetail.PostEventOrganizerData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.io.File
 import javax.inject.Inject
 @HiltViewModel
 class OrganizerDetailsViewModel @Inject constructor(
@@ -40,8 +40,9 @@ class OrganizerDetailsViewModel @Inject constructor(
         }
     }
 
-    fun callPostOrganizerAPI(eventDescriptionPost: PostEventOrganizerData) = viewModelScope.launch {
-        userRepo.postOrganizerApi(eventDescriptionPost).collect { result ->
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun callPostOrganizerAPI(eventDescriptionPost: PostEventOrganizerData, fileImage: File?) = viewModelScope.launch {
+        userRepo.postOrganizerApi(eventDescriptionPost,fileImage).collect { result ->
             _organizerpostResponse.value = result
         }
     }

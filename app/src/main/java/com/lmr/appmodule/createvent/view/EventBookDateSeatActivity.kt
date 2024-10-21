@@ -30,9 +30,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.Calendar
 
-@AndroidEntryPoint
 
-@Suppress("UNREACHABLE_CODE")
+@AndroidEntryPoint
 class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Binding>() {
     private var freeStatus: Boolean =true
 
@@ -137,10 +136,9 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
        val saleEndTime = binding.endTimeSaleTextView.text.toString()
         val vipSeat = binding.vipSeatsTextView.text.toString()
         val quantity = binding.quantityEditText.text.toString()
-        val saleEndDate = binding.endTimeSaleTextView.text.toString()
-        val salStartDate = binding.tvTicketSalesStartDate.text.toString()
+        val saleEndDate = binding.endDateSaleTextView.text.toString()
+        val salStartDate = binding.ticketSalesStartDateText.text.toString()
         val salStarTime = binding.salesStarTimeTextView.text.toString()
-        val endDateSale = binding.endDateSaleTextView.text.toString()
         val endTimeSale = binding.endTimeSaleTextView.text.toString()
 
         var postFreestatus =0
@@ -164,9 +162,21 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
             lstTicketBookingDetailRequest = arrayListOf()
         )
 
+        if(freeStatus){
 
-        viewModel.   callEventbookDateSeatAPI(eventBookingRequest)
-        observerPostResponseData()
+            val intent = Intent(this@EventBookDateSeatActivity, EventTicketingSeatActivity::class.java)
+            intent.putExtra("eventID", "212")
+            intent.putExtra("eventBookingRequest", eventBookingRequest)
+
+            startActivity(intent)
+            return
+        }else{
+            viewModel.   callEventbookDateSeatAPI(eventBookingRequest)
+            observerPostResponseData()
+        }
+
+
+
     }
 
 
@@ -189,8 +199,12 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
                                 if(response?.success == true){
 
                                     var eventId= response.data.eventID;
+                                    val intent = Intent(this@EventBookDateSeatActivity, EventTicketingSeatActivity::class.java)
+                                    intent.putExtra("eventID", eventId)
+                                    startActivity(intent)
 
-                                    startActivity(Intent(this@EventBookDateSeatActivity, EventTicketingSeatActivity::class.java))
+
+                                   // startActivity(Intent(this@EventBookDateSeatActivity, EventTicketingSeatActivity::class.java))
                                 }else{
 
 
@@ -232,7 +246,7 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
         val datePickerDialog = DatePickerDialog(
             this,
             { _, year, month, dayOfMonth ->
-                val date = "$dayOfMonth/$year/$month"
+                val date = "$dayOfMonth/$month/$year"
                 binding.ticketSalesStartDateText.text = date
             },
             Calendar.getInstance()[Calendar.YEAR],
@@ -246,7 +260,7 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
         val datePickerDialog = DatePickerDialog(
             this,
             { _, year, month, dayOfMonth ->
-                val date = "$dayOfMonth/$year/$month"
+                val date = "$dayOfMonth/$month/$year"
                 binding.endDateSaleTextView.text = date
             },
             Calendar.getInstance()[Calendar.YEAR],

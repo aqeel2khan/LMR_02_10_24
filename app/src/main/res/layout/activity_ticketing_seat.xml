@@ -46,16 +46,17 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnOneTimeEvent"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bttn_round"
-
                     android:text="One Time Event"
                     android:textAllCaps="false"
                     android:textColor="#4A4A4A"
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnrecurringTimeEvent"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -123,13 +124,14 @@
 
 
                     <EditText
+                        android:id="@+id/etSeatName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_marginHorizontal="2dp"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/blank_form_shape"
-                        android:hint="@string/vip_seats"
+                        android:hint="Price"
                         android:inputType="number"
                         android:maxLines="3"
                         android:paddingHorizontal="5dp"
@@ -147,6 +149,7 @@
 
 
                     <EditText
+                        android:id="@+id/etQuantity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -184,7 +187,7 @@
 
 
                 <LinearLayout
-                    android:id="@+id/price"
+                    android:id="@+id/rlprice"
                     android:layout_width="161dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/priceText"
@@ -193,13 +196,14 @@
                     android:orientation="vertical">
 
                     <EditText
+                        android:id="@+id/etprice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_marginHorizontal="2dp"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/blank_form_shape"
-                        android:hint="Vip Seats"
+                        android:hint="Price"
                         android:maxLines="3"
                         android:paddingHorizontal="5dp"
                         android:textColor="@color/black"
@@ -211,9 +215,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_above="@id/price"
-                    android:layout_alignEnd="@id/price"
-                    android:layout_alignBottom="@id/price"
+                    android:layout_alignEnd="@id/rlprice"
+                    android:layout_alignBottom="@id/rlprice"
                     android:layout_marginEnd="15dp"
                     android:layout_marginBottom="10dp"
                     android:text="KD"
@@ -278,6 +281,7 @@
                     android:orientation="vertical">
 
                     <EditText
+                        android:id="@+id/etMinimumTicket"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -302,6 +306,7 @@
                     android:orientation="vertical">
 
                     <EditText
+                        android:id="@+id/etMaximumTicket"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -346,6 +351,7 @@
                     android:orientation="vertical">
 
                     <EditText
+                        android:id="@+id/etTicketDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -415,8 +421,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/linear9"
-                android:layout_marginStart="65dp"
-                android:layout_marginTop="-25dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="-15dp"
                 android:text="If the Lamar Ticketing fee paid by the guest" />
 
             <TextView

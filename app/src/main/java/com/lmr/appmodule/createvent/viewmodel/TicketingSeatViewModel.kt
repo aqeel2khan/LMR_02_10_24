@@ -6,6 +6,8 @@ import com.lmr.appmodule.model.LoginResponseModel
 import com.lmr.appmodule.repository.TicketingSeatRepository
 import com.lmr.app_utils.NetworkErrorResult
 import com.google.gson.JsonObject
+import com.lmr.appmodule.createvent.model.description.EventDescriptionResponse
+import com.lmr.appmodule.createvent.model.eventbookdateseat.EventBookingRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,19 +16,15 @@ class TicketingSeatViewModel @Inject constructor(
     private val userRepo: TicketingSeatRepository
 ): BaseViewModel() {
 
-    // Login Api
-    var _loginResponse: MutableLiveData<NetworkErrorResult<LoginResponseModel>> = MutableLiveData()
+    var _eventDescriptionResponse: MutableLiveData<NetworkErrorResult<EventDescriptionResponse>> = MutableLiveData()
 
     // Create Event Model Response
-    val loginResponse: LiveData<NetworkErrorResult<LoginResponseModel>>
-        get() = _loginResponse
+    val eventDescriptionResponse: LiveData<NetworkErrorResult<EventDescriptionResponse>>
+        get() = _eventDescriptionResponse
 
-    fun loginApiCall(jsonObject: JsonObject) = viewModelScope.launch {
-        userRepo.loginApi(jsonObject).collect { values ->
-            _loginResponse.value = values
+    fun callEventbookDateSeatAPI(eventDescriptionPost: EventBookingRequest) = viewModelScope.launch {
+        userRepo.addEventBookDateSeat(eventDescriptionPost).collect { result ->
+            _eventDescriptionResponse.value = result
         }
-    }
-    fun callPostEvent(jsonObject: JsonObject) = viewModelScope.launch {
-        userRepo.loginApi(jsonObject)
     }
 }

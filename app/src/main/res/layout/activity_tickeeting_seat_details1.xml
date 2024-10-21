@@ -147,12 +147,14 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <TextView
+                    <EditText
                         android:id="@+id/vipSeatsTextView"
                         android:layout_width="0dp"
                         android:layout_height="25dp"
                         android:layout_weight="0.80"
-                        android:text="@string/vip_seats"
+                        android:background="@null"
+                        android:gravity="left|center_vertical"
+                        android:hint="@string/vip_seats"
                         android:textColor="@color/grey2"
                         android:textSize="11sp"
                         android:textStyle="bold" />

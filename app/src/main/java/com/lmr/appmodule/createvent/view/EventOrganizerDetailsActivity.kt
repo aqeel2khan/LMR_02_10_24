@@ -14,6 +14,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -61,6 +62,7 @@ class EventOrganizerDetailsActivity : BaseActivity<ActivityOrganigerDetailsBindi
         return viewModel
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("SetTextI18n")
     override fun initUi() {
 
@@ -158,6 +160,7 @@ class EventOrganizerDetailsActivity : BaseActivity<ActivityOrganigerDetailsBindi
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun postOrganizerData() {
         var organigerName=  binding.etOrganigerName.text.toString()
         var OrganizerDetail=  binding.etOrganizerDetail.text.toString()

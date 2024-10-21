@@ -11,9 +11,10 @@ import com.lmr.appmodule.createvent.model.organizerdetail.PostEventOrganizerData
 import com.lmr.appmodule.model.LoginResponseModel
 import com.lmr.appmodule.repository.EventBookDateSeatRepository
 import com.lmr.appmodule.repository.TicketingSeatDetailsRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
+@HiltViewModel
 class EventDateSeatViewModel @Inject constructor(
     private val userRepo: EventBookDateSeatRepository
 ): BaseViewModel() {

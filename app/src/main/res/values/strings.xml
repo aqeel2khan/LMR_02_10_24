@@ -281,4 +281,7 @@ Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagitt
     <string name="filter">Filter</string>
     <string name="search_for">Search For</string>
     <string name="by_relevance">By Relevance</string>
+
+    <string name="google_api_key">AIzaSyDUQdBB2bfGxv74poYY2DGHQdPxMa8YXJ4</string>
+
 </resources>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LocationActivity">
+   >
 
     <RelativeLayout
         android:id="@+id/rlHeader"
@@ -44,8 +44,8 @@
 
                 <TextView
                     android:id="@+id/tvhelppeople"
-                    android:layout_width="353dp"
-                    android:layout_height="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/tvlocation"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="10dp"
@@ -79,12 +79,11 @@
                     android:weightSum="2">
 
                     <TextView
-                        android:id="@+id/tvgrandhyatt"
+                        android:id="@+id/tvAddress"
                         android:layout_width="0dp"
                         android:layout_height="20dp"
                         android:layout_weight="1.70"
                         android:gravity="left|center_vertical"
-                        android:text="@string/grand_hyatt_residency_jumairah"
                         android:textColor="#4A4A4A"
                         tools:ignore="RtlHardcoded" />
 
@@ -106,7 +105,7 @@
                     android:layout_marginEnd="50dp"
                     android:background="@color/grey1" />
 
-                <ImageView
+               <!-- <ImageView
                     android:id="@+id/imbitmapicon"
                     android:layout_width="410dp"
                     android:layout_height="290dp"
@@ -114,13 +113,21 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="0dp"
-                    android:src="@drawable/bitmap_icon" />
+                    android:src="@drawable/bitmap_icon" />-->
+
+                <fragment
+                    android:id="@+id/map"
+                    android:layout_below="@+id/view4"
+                    android:layout_marginTop="10dp"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="290dp"/>
 
                 <LinearLayout
                     android:id="@+id/saveAndContinueButtonLocation"
                     android:layout_width="300dp"
                     android:layout_height="49dp"
-                    android:layout_below="@+id/imbitmapicon"
+                    android:layout_below="@+id/map"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/button_background"

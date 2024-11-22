@@ -33,7 +33,7 @@ class EventTicketingSeatActivity : BaseActivity<ActivityTicketingSeatBinding>() 
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "SuspiciousIndentation")
     override fun initUi() {
         val detailsTextView = findViewById<TextView>(R.id.detailsTextView)
         detailsTextView.text = "Ticketing/ Seat Details"
@@ -108,7 +108,7 @@ class EventTicketingSeatActivity : BaseActivity<ActivityTicketingSeatBinding>() 
          var mList=   arrayListOf<TicketBookingDetailRequest>()
             mList.add(listData)
 
-            eventBookingRequest?.lstTicketBookingDetailRequest=mList
+            eventBookingRequest?.lstTicketBookingDetailRequest = mList
 
             if (eventBookingRequest != null) {
                 viewModel.   callEventbookDateSeatAPI(eventBookingRequest)

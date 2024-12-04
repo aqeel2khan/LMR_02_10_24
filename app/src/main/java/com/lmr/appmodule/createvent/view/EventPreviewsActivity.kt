@@ -36,6 +36,8 @@ class EventPreviewsActivity : BaseActivity<ActivityPreviewsBinding>() {
             jsonObject.addProperty("eventID", eventId)
             viewModel.postEventApiCall(jsonObject)
             observerPostEventResponseData()
+            val intent = Intent(this@EventPreviewsActivity, MainActivity::class.java)
+            startActivity(intent)
         }
 
 

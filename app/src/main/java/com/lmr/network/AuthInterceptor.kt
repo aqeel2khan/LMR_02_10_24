@@ -13,7 +13,7 @@ class AuthInterceptor @Inject constructor(private val sharedPreferences: AppShar
             .method(mainRequest.method, mainRequest.body)
 
 
-        builder.addHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIiLCJlbWFpbCI6IjEyMTIxMjEyMTIiLCJuYmYiOjE3MDU4NDMzOTIsImV4cCI6MTcwNTg0NTE5MiwiaWF0IjoxNzA1ODQzMzkyLCJpc3MiOiJJc3N1ZXIiLCJhdWQiOiJBdWRpZW5jZSJ9.vlEMiNT4VCIOiKyLqwAaTLfM8-c25W8zC9lEWhUpGCrV5XK0O4795sNPInQVl6Cax7ymiQLx1vmamaR6FMFvJg")
+        builder.addHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIiLCJlbWFpbCI6IjQzIiwibmJmIjoxNzMzMzMxODk4LCJleHAiOjE3MzMzMzM2OTgsImlhdCI6MTczMzMzMTg5OCwiaXNzIjoiSXNzdWVyIiwiYXVkIjoiQXVkaWVuY2UifQ.yjpDRYUnIw6pwN9--NpBvHbTjmfrxab7t7BJEV6S3-c32-kLCJm0II6aVrg02tv6repCV_62l66VQLeFJOawGA")
 //        if(sharedPreferences.token != null) {
 //            sharedPreferences.token?.let {
 //                builder.addHeader("Authorization", "Bearer $it")

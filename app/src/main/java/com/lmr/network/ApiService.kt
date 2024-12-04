@@ -13,6 +13,11 @@ import com.lmr.appmodule.createvent.model.description.EventDescriptionResponse
 import com.lmr.appmodule.createvent.model.eventbookdateseat.EventBookingRequest
 import com.lmr.appmodule.createvent.model.organizerdetail.OrganizerTypeResponse
 import com.lmr.appmodule.createvent.model.organizerdetail.PostEventOrganizerData
+import com.lmr.appmodule.home.model.DashboardEventResponse
+import com.lmr.appmodule.home.model.EventByOrganizerResponse
+import com.lmr.appmodule.home.model.EventOrganizerProfileResponse
+import com.lmr.appmodule.home.model.EventOrganizerResponse
+import com.lmr.appmodule.home.model.LocationResponse
 import com.lmr.appmodule.model.response.EventResponse
 import com.lmr.appmodule.model.response.MaximumCapacityModel
 import com.lmr.appmodule.model.response.PostEventResponse
@@ -23,6 +28,7 @@ import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Query
 
 interface ApiService {
     @GET("api/User")
@@ -88,7 +94,7 @@ interface ApiService {
     suspend fun getEventCategoryApi(@Body jsonObject: JsonObject): LoginResponseModel
 
     @POST("/api/Events/EventPost")
-    suspend fun eventPostApi(@Body jsonObject: JsonObject): LoginResponseModel
+    suspend fun eventPostApi(@Body jsonObject: JsonObject): PostEventResponse
 
     @POST("/api/Events/AddTicketingDetails")
     suspend fun addTicketingDetailsApi(@Body jsonObject: JsonObject): LoginResponseModel
@@ -113,6 +119,21 @@ interface ApiService {
 
     @POST("/api/Events/AddDescription")
     suspend fun addDescriptionApi(@Body jsonObject: JsonObject): LoginResponseModel
+
+    @GET("/api/Home")
+    suspend fun getLocation(): LocationResponse
+
+    @GET("/api/EventDashboard/GetOrganizerList")
+    suspend fun getEventOrganizerList(): EventOrganizerResponse
+
+    @GET("/api/EventDashboard")
+    suspend fun getEventDashboardList(@Query("LocationID") locationID: String): DashboardEventResponse
+
+    @POST("/api/EventDashboard/GetEventByOrganizer")
+    suspend fun getEventByOrganizerList(@Body jsonObject: JsonObject): EventByOrganizerResponse
+
+    @GET("/api/EventDashboard/GetOrganizerProfile")
+    suspend fun getEventOrganizerProfileList(@Query("OrganizerID") organizerId: String): EventOrganizerProfileResponse
 
 
 }

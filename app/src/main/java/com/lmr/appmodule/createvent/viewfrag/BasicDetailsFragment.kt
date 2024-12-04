@@ -2,6 +2,7 @@ package com.lmr.appmodule.createvent.viewfrag
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.view.Gravity
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -78,11 +79,24 @@ class BasicDetailsFragment : BaseFragment<ActivityBasicDetailsBinding>() {
         }
         customSpinnerAgeGroup();
         binding.saveAndContinueButtonBasic.setOnClickListener {
-            // post data to api
-            startActivity(Intent(requireActivity(), EventDescriptionActivity::class.java))
 
-           postData()
-            // Initiate the API calls
+            if(binding.eventEditText.text.isNullOrEmpty()){
+                Toast.makeText(requireContext(), "Please Enter Event Name", Toast.LENGTH_SHORT).show()
+            }else if (eventTypeSelected!!.eventTypeNameEnglish.equals("TYPE OF EVENT")){
+                Toast.makeText(requireContext(), "Please Enter Type Of Event", Toast.LENGTH_SHORT).show()
+            }else if (eventcategorySelected!!.eventTypeNameEnglish.equals("CHOOSE CATEGORY")){
+                Toast.makeText(requireContext(), "Please Choose Category", Toast.LENGTH_SHORT).show()
+            }else if (eventCapacityDataSelected!!.maximumCapacity.equals("MAXIMUM")){
+                Toast.makeText(requireContext(), "Please Enter Maximum", Toast.LENGTH_SHORT).show()
+            }else if (eventAgeGroupData!!.age.equals("AGE GROUP")){
+                Toast.makeText(requireContext(), "Please Enter Age", Toast.LENGTH_SHORT).show()
+            }else{
+                startActivity(Intent(requireActivity(), EventDescriptionActivity::class.java))
+                postData()
+            }
+
+
+
 
         }
 
@@ -232,8 +246,16 @@ class BasicDetailsFragment : BaseFragment<ActivityBasicDetailsBinding>() {
             val addHint = AgeGroupData(-1,"AGE GROUP")
             data!!.add(0,addHint)
 
-            ageGroupSpinnerAdapter =  AgeGroupSpinnerAdapter(requireContext(), data)
-            binding.customSpinner4.adapter=ageGroupSpinnerAdapter
+            // Create an ArrayAdapter with eventTypeNameEnglish values
+            val eventNames = data?.map { it.age } ?: listOf("AGE GROUP")
+            val adapter = ArrayAdapter(requireActivity(), com.lmr.R.layout.spinner_item, eventNames)
+            adapter.setDropDownViewResource(R.layout.spinner_item)
+
+            // Set up the spinner
+            binding.customSpinner4.adapter = adapter
+            binding.customSpinner4.setDropDownVerticalOffset(0) // Optional: Adjust vertical offset if needed
+            binding.customSpinner4.gravity = Gravity.BOTTOM
+
             binding.customSpinner4?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
 
@@ -439,8 +461,16 @@ class BasicDetailsFragment : BaseFragment<ActivityBasicDetailsBinding>() {
 
             val addHint = CapacityData(-1,"MAXIMUM")
             data!!.add(0,addHint)
-            customMaxCapacitySpinnerAdapter =  MaxCapacitySpinnerAdapter(requireContext(), data)
-            binding.customSpinner3.adapter=customMaxCapacitySpinnerAdapter
+            // Create an ArrayAdapter with eventTypeNameEnglish values
+            val eventNames = data?.map { it.maximumCapacity } ?: listOf("MAXIMUM")
+            val adapter = ArrayAdapter(requireActivity(), com.lmr.R.layout.spinner_item, eventNames)
+            adapter.setDropDownViewResource(R.layout.spinner_item)
+
+            // Set up the spinner
+            binding.customSpinner3.adapter = adapter
+            binding.customSpinner3.setDropDownVerticalOffset(0) // Optional: Adjust vertical offset if needed
+            binding.customSpinner3.gravity = Gravity.BOTTOM
+
             binding.customSpinner3?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
 
@@ -513,34 +543,52 @@ class BasicDetailsFragment : BaseFragment<ActivityBasicDetailsBinding>() {
         }
     }
 */
-    private fun setDataforEventTypeSpinner(data: MutableList<Event>?) {
-        try {
-            val addHint = Event(-1,"TYPE OF EVENT","","EN")
-            data!!.add(0,addHint)
-            customEventTypeSpinnerAdapter =  EventTypeSpinnerAdapter(requireContext(), data)
-            binding.customSpinner1.adapter=customEventTypeSpinnerAdapter
-            binding.customSpinner1?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+private fun setDataforEventTypeSpinner(data: MutableList<Event>?) {
+    try {
+        // Adding a hint option at the top of the list
+        val addHint = Event(-1, "TYPE OF EVENT", "", "EN")
+        data?.add(0, addHint)
 
-                    eventTypeSelected=     data?.get(position)
-                } // to close the onItemSelected
+        // Create an ArrayAdapter with eventTypeNameEnglish values
+        val eventNames = data?.map { it.eventTypeNameEnglish } ?: listOf("TYPE OF EVENT")
+        val adapter = ArrayAdapter(requireActivity(), com.lmr.R.layout.spinner_item, eventNames)
+        adapter.setDropDownViewResource(R.layout.spinner_item)
 
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-
-                }
-
+        // Set up the spinner
+        binding.customSpinner1.adapter = adapter
+        binding.customSpinner1.setDropDownVerticalOffset(0) // Optional: Adjust vertical offset if needed
+        binding.customSpinner1.gravity = Gravity.BOTTOM
+        binding.customSpinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                eventTypeSelected = data?.get(position)
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Handle case where nothing is selected, if needed
+            }
         }
+    } catch (e: Exception) {
+        e.printStackTrace()
     }
+}
+
+
+
     private fun setDataforCategorySpinner(listEventCategory: MutableList<EventCategory>?) {
 
         try {
             val addHint = EventCategory(-1,"CHOOSE CATEGORY","","EN")
             listEventCategory!!.add(0,addHint)
-            customEventCategorySpinnerAdapter =  CustomSpinerEventCategoryAdapter(requireContext(), listEventCategory)
-            binding.customSpinner2.adapter=customEventCategorySpinnerAdapter
+            // Create an ArrayAdapter with eventTypeNameEnglish values
+            val eventNames = listEventCategory?.map { it.eventTypeNameEnglish } ?: listOf("CHOOSE CATEGORY")
+            val adapter = ArrayAdapter(requireActivity(), com.lmr.R.layout.spinner_item, eventNames)
+            adapter.setDropDownViewResource(R.layout.spinner_item)
+
+            // Set up the spinner
+            binding.customSpinner2.adapter = adapter
+            binding.customSpinner2.setDropDownVerticalOffset(0) // Optional: Adjust vertical offset if needed
+            binding.customSpinner2.gravity = Gravity.BOTTOM
+
             binding.customSpinner2?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
 

@@ -183,7 +183,7 @@ class EventOrganizerDetailsActivity : BaseActivity<ActivityOrganigerDetailsBindi
             profileImage = imagePathShow?:"",
             lstteammember = teamMembers
         )
-        viewModel.   callPostOrganizerAPI(postEventOrganizerData,fileImage)
+        viewModel.callPostOrganizerAPI(postEventOrganizerData,fileImage)
         observerPostResponseData()
     }
 
@@ -195,7 +195,6 @@ class EventOrganizerDetailsActivity : BaseActivity<ActivityOrganigerDetailsBindi
                 when(it){
                     is NetworkErrorResult.Success->{
                         LoaderUtil.hideLoader(this)  // To
-
                         viewModel.organizerpostResponse.removeObservers(this)
                         if (viewModel.organizerpostResponse.hasObservers()) return@observe
                         //     hideLoader()
@@ -207,7 +206,11 @@ class EventOrganizerDetailsActivity : BaseActivity<ActivityOrganigerDetailsBindi
 
                                     var eventId= response.data.eventID;
 
-                                    startActivity(Intent(this@EventOrganizerDetailsActivity, EventBookDateSeatActivity::class.java))
+                                    //startActivity(Intent(this@EventOrganizerDetailsActivity, EventBookDateSeatActivity::class.java))
+
+                                    val intent = Intent(this@EventOrganizerDetailsActivity, EventBookDateSeatActivity::class.java)
+                                    intent.putExtra("eventID", eventId.toString())
+                                    startActivity(intent)
                                 }else{
 
 

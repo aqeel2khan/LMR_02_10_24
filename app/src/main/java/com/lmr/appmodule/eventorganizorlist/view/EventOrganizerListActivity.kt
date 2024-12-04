@@ -5,24 +5,26 @@ import android.view.View
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.lmr.R
+import com.lmr.app_utils.NetworkErrorResult
 import com.lmr.appmodule.BaseActivity
+import com.lmr.appmodule.createvent.viewmodel.AllViewModel
 import com.lmr.appmodule.createvent.viewmodel.BaseViewModel
-import com.lmr.appmodule.createvent.viewmodel.DateTimeViewModel
 import com.lmr.appmodule.eventorganizorlist.adapter.EventOrganizerListAdapter
 import com.lmr.appmodule.eventorganizorlist.model.OrganizerDataItem
-import com.lmr.appmodule.eventorganizorlist.viewmodel.OrganizerListViewModel
+import com.lmr.appmodule.home.model.Organizer
 import com.lmr.appmodule.organizerDetail.CompanyDetailsFragment
-import com.lmr.appmodule.vendor.utils.AdaptiveSpacingItemDecoration
-import com.lmr.appmodule.vendor.utils.HorizontalSpacingItemDecoration
 import com.lmr.appmodule.vendor.utils.OnClickListener
 import com.lmr.databinding.EventOrganizerListActivityBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.util.ArrayList
 @AndroidEntryPoint
 class EventOrganizerListActivity : BaseActivity<EventOrganizerListActivityBinding>() {
-    private val viewModel: OrganizerListViewModel by viewModels()
+    private val viewModel: AllViewModel by viewModels()
     override fun getViewModel(): BaseViewModel {
         return  viewModel
     }
@@ -43,17 +45,16 @@ class EventOrganizerListActivity : BaseActivity<EventOrganizerListActivityBindin
 //            binding.tvsingledayevent.setBackgroundResource(R.drawable.circle_shap_allo)
 //        }
 
-            showData()
+           // showData()
         } catch (e: Exception) {
             e.printStackTrace()
         }
-
+        eventOrganizerResponseData()
+        viewModel.eventOrganizerApiCall()
 
     }
 
     private fun showData() {
-
-
         try {
             val mOnClickListener = object : OnClickListener {
                 override fun <T> onClick(view: View, item: T) {
@@ -123,21 +124,75 @@ class EventOrganizerListActivity : BaseActivity<EventOrganizerListActivityBindin
 //        vendorEventsList.add(organizerDataItem4)
 //        vendorEventsList.add(organizerDataItem4)Exce
 
-            binding.recyclerList.apply {
-
-
+           /* binding.recyclerList.apply {
                 layoutManager =  GridLayoutManager(this@EventOrganizerListActivity,2)
                 adapter = EventOrganizerListAdapter(vendorEventsList,mOnClickListener,this@EventOrganizerListActivity)
 
                binding.recyclerList.addItemDecoration(AdaptiveSpacingItemDecoration(binding.recyclerList.context.resources.getDimensionPixelSize(R.dimen.spacing), edgeEnabled = true))
 
-            }
+            }*/
         } catch (e: Exception) {
             e.printStackTrace()
         }
 
 
     }
+
+    fun eventOrganizerResponseData() {
+        try {
+            LoaderUtil.showLoader(this)  // To show loader
+            viewModel.eventOrganizerResponse.observe(this){
+                when(it){
+                    is NetworkErrorResult.Success->{
+                        LoaderUtil.hideLoader(this)  // To
+                        viewModel.eventOrganizerResponse.removeObservers(this)
+                        if (viewModel.eventOrganizerResponse.hasObservers()) return@observe
+                        //     hideLoader()
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.data
+                                if(response?.success == true){
+                                    eventOrganizerListAdapter(response.data)
+
+                                }else{
+                                }
+                            }
+                        }
+                    }
+                    is NetworkErrorResult.Error->{
+                        LoaderUtil.hideLoader(this)  // To
+                        viewModel.eventOrganizerResponse.removeObservers(this)
+                        if ( viewModel.eventOrganizerResponse.hasObservers()) return@observe
+                        //   hideLoader()
+                        //   snackBarWithRedBackground(binding.root, MyUtils.errorBody(it.message,binding.root.context))
+                    }
+                    is NetworkErrorResult.Loading->{
+                        //  hideLoader()
+                    }
+
+                    else -> {
+                        LoaderUtil.hideLoader(this)  // To
+
+                    }
+                }
+            }
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+            LoaderUtil.hideLoader(this)  // To
+
+        }
+    }
+
+    fun eventOrganizerListAdapter(allUserAlerts:List<Organizer>) {
+        binding.recyclerList.setLayoutManager(
+            GridLayoutManager(this@EventOrganizerListActivity,2)
+        )
+        val adapter = EventOrganizerListAdapter(allUserAlerts,this)
+        binding.recyclerList.adapter = adapter
+        adapter.notifyDataSetChanged()
+    }
+
 
     override fun getViewBinding()= EventOrganizerListActivityBinding.inflate(layoutInflater)
 

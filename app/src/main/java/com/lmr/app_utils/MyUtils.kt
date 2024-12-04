@@ -23,6 +23,7 @@ import android.util.Log
 import android.util.Patterns
 import android.webkit.MimeTypeMap
 import android.webkit.URLUtil
+import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -31,6 +32,7 @@ import com.lmr.R
 import com.lmr.app_custom.ImageResizeCallback
 import com.lmr.app_utils.PermissionKeys.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE
 import com.lmr.app_utils.camera.URIPathHelper
+import com.squareup.picasso.Picasso
 import id.zelory.compressor.Compressor
 import id.zelory.compressor.constraint.format
 import id.zelory.compressor.constraint.quality
@@ -362,6 +364,21 @@ object MyUtils {
         }
     }
 
+    fun loadImageWithProgress(view: ImageView, url: String, context: Context) {
+        try {
+            Picasso.get()
+                .load(url)
+                //.rotate(90f)
+                //.resize(400,400).centerCrop()
+                .placeholder(R.drawable.alert_image_placeholder)  // Optional: Set a placeholder image while loading
+                .error(R.drawable.alert_image_placeholder)  // Optional: Set an error image if loading fails
+                .into(view)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+
+    }
 
 
     fun getConvertedDateStamp(datestamp: String):String{

@@ -34,6 +34,7 @@ import java.util.Calendar
 @AndroidEntryPoint
 class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Binding>() {
     private var freeStatus: Boolean =true
+    var eventId=""
 
     private val viewModel: EventDateSeatViewModel by viewModels()
     private lateinit var mListener: ImageResizeCallback
@@ -92,6 +93,7 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
+        eventId = intent.getStringExtra("eventID").toString()
 
         val detailsTextView = findViewById<TextView>(R.id.detailsTextView)
         detailsTextView.text = "Ticketing/Seating"
@@ -153,7 +155,7 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
 
         val eventBookingRequest = EventBookingRequest(
             seatDetailsID = 0,
-            eventID = 264,
+            eventID = eventId.toInt(),
             eventPaidType = postFreestatus,
             bookingStartDate = salStartDate,
             bookingEndDate = saleEndDate,
@@ -165,7 +167,7 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
         if(freeStatus){
 
             val intent = Intent(this@EventBookDateSeatActivity, EventTicketingSeatActivity::class.java)
-            intent.putExtra("eventID", "212")
+            intent.putExtra("eventID", eventId.toString())
             intent.putExtra("eventBookingRequest", eventBookingRequest)
 
             startActivity(intent)
@@ -200,7 +202,7 @@ class EventBookDateSeatActivity : BaseActivity<ActivityTickeetingSeatDetails1Bin
 
                                     var eventId= response.data.eventID;
                                     val intent = Intent(this@EventBookDateSeatActivity, EventTicketingSeatActivity::class.java)
-                                    intent.putExtra("eventID", eventId)
+                                    intent.putExtra("eventID", eventId.toString())
                                     startActivity(intent)
 
 

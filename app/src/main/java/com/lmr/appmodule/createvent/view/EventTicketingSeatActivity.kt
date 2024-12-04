@@ -123,29 +123,22 @@ class EventTicketingSeatActivity : BaseActivity<ActivityTicketingSeatBinding>() 
     private fun observerPostResponseData() {
         try {
             LoaderUtil.showLoader(this)  // To show loader
-            viewModel._eventDescriptionResponse.observe(this){
+            viewModel.eventDescriptionResponse.observe(this){
                 when(it){
                     is NetworkErrorResult.Success->{
                         LoaderUtil.hideLoader(this)  // To
 
-                        viewModel._eventDescriptionResponse.removeObservers(this)
-                        if (viewModel._eventDescriptionResponse.hasObservers()) return@observe
+                        viewModel.eventDescriptionResponse.removeObservers(this)
+                        if (viewModel.eventDescriptionResponse.hasObservers()) return@observe
                         //     hideLoader()
                         lifecycleScope.launch {
                             it.let {
                                 val response = it.data
 
-                                if(response?.success == true){
-
-                                    var eventId= response.data.eventID;
-                                    val intent = Intent(this@EventTicketingSeatActivity, EventPreviewsActivity::class.java)
-                                    intent.putExtra("eventID", eventId)
-                                    startActivity(intent)
-
-                                }else{
-
-
-                                }
+                                var eventId= response!!.data.eventID;
+                                val intent = Intent(this@EventTicketingSeatActivity, EventPreviewsActivity::class.java)
+                                intent.putExtra("eventID", eventId.toString())
+                                startActivity(intent)
 
                             }
                         }

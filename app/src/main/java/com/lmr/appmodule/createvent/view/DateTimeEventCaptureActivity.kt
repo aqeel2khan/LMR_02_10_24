@@ -23,7 +23,7 @@ import java.util.Calendar
 
 @AndroidEntryPoint
 class DateTimeEventCaptureActivity() : BaseActivity<ActivityDateTime3Binding>() {
-    private var numberTimesEvent: String ?= ""
+    private var numberTimesEvent: String ?= "1"
     private val viewModel: DateTimeViewModel by viewModels()
     override fun getViewModel(): BaseViewModel {
         return  viewModel
@@ -90,9 +90,7 @@ class DateTimeEventCaptureActivity() : BaseActivity<ActivityDateTime3Binding>() 
                                 val response = it.data
 
                                 if(response?.success == true){
-
                                     var eventId= response.data.eventID;
-
                                     startActivity(Intent(this@DateTimeEventCaptureActivity, EventLocationActivity::class.java))
                                 }else{
 
@@ -149,7 +147,7 @@ class DateTimeEventCaptureActivity() : BaseActivity<ActivityDateTime3Binding>() 
             this,
             { _, hourOfDay, minute ->
                 val date = "$hourOfDay/$minute"
-                binding.tvendtime.text = date
+                binding.tvend4pm.text = date
             },
             0,
             0,
@@ -189,18 +187,15 @@ class DateTimeEventCaptureActivity() : BaseActivity<ActivityDateTime3Binding>() 
     }
 
     fun createDateTimeEventPost(): DateTimeEventPost {
-
         var diplayStartTime=  binding.ch1.isChecked
         var diplayEndTime=  binding.ch2.isChecked
-
-
         val dateTimeDetailsList = listOf(
             DateTimeDetailsRequest(
                 eventDateAndTimeDetailsID = 0,
                 eventStartDate =  binding.startDateText.text.toString()?:"",
                 startTime =  binding.tvStartTime.text.toString(),
                 eventEndDate =  binding.endDate.text.toString()?:"",
-                endTime =     binding.tvendtime.text.toString()
+                endTime =     binding.tvend4pm.text.toString()
             )
 
         )

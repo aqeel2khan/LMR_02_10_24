@@ -104,6 +104,7 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/txt_company"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Kuwait Oil Company (KOC)"
@@ -120,63 +121,72 @@
         android:layout_marginTop="@dimen/_20sdp"
         >
       <LinearLayout
+          android:id="@+id/ll_upcoming_events"
           android:layout_width="@dimen/_100sdp"
           android:layout_height="wrap_content"
           android:orientation="vertical"
           >
         <TextView
+            android:id="@+id/txt_upcoming_event"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Upcoming Events"
             android:textSize="@dimen/_10sdp"
             android:fontFamily="@font/outfit_medium"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/txt_blue"
             android:gravity="center"
 
             ></TextView>
         <View
+            android:id="@+id/view_upcoming"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/purple_500"
+            android:background="@color/txt_blue"
             ></View>
       </LinearLayout>
       <LinearLayout
+          android:id="@+id/ll_previous_events"
           android:layout_width="@dimen/_100sdp"
           android:layout_height="wrap_content"
           android:orientation="vertical"
           >
         <TextView
+            android:id="@+id/txt_previous_events"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Previous Events"
             android:textSize="@dimen/_10sdp"
             android:fontFamily="@font/outfit_medium"
+            android:textColor="@color/grey3"
             android:gravity="center"
 
             ></TextView>
         <View
-
+            android:id="@+id/view_previous_events"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/white"
             ></View>
       </LinearLayout>
       <LinearLayout
+          android:id="@+id/ll_profile"
           android:layout_width="@dimen/_100sdp"
           android:layout_height="wrap_content"
           android:orientation="vertical"
           >
         <TextView
+            android:id="@+id/txt_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Profile"
             android:textSize="@dimen/_10sdp"
+            android:textColor="@color/grey3"
             android:fontFamily="@font/outfit_medium"
             android:gravity="start"
 
             ></TextView>
         <View
-
+            android:id="@+id/view_profile"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/white"
@@ -194,22 +204,20 @@
         android:orientation="vertical"
         android:layout_margin="@dimen/_10sdp"
         >
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/rv_events"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
       <TextView
+          android:visibility="gone"
+          android:id="@+id/txt_profile_description"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:fontFamily="@font/outfit_medium"
           android:textSize="@dimen/_12sdp"
           android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu "
           ></TextView>
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Show more"
-          android:textSize="@dimen/_12sdp"
-          android:textColor="@color/purple_500"
-          android:layout_marginTop="@dimen/_20sdp"
-          android:fontFamily="@font/outfit_bold"
-          ></TextView>
+
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"

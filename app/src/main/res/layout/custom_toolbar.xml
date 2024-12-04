@@ -42,6 +42,8 @@
                     android:layout_centerVertical="true"
                     android:text="Basic Details"
                     android:textColor="@color/white"
+                    android:fontFamily="@font/unineue_trial_regular"
+                    android:textFontWeight="500"
                     android:textSize="@dimen/_15ssp"
                     tools:ignore="RtlSymmetry" />
 

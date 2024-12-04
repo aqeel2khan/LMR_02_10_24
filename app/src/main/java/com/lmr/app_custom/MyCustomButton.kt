@@ -42,12 +42,12 @@ class MyCustomButton : AppCompatButton {
 
     private fun selectTypeface(context: Context, fontName: String?, textStyle: Int): Typeface? {
         return if (fontName == null) {
-            FontCache.getTypeface("Poppins-SemiBold.ttf", context)
-        } else if (fontName.contentEquals("Poppins-SemiBold.ttf")) {
-            FontCache.getTypeface("Poppins-SemiBold.ttf", context)
+            FontCache.getTypeface("UniNeue-Trial-Book.ttf", context)
+        } else if (fontName.contentEquals("UniNeue-Trial-Book.ttf")) {
+            FontCache.getTypeface("UniNeue-Trial-Book.ttf", context)
 
         } else {
-            FontCache.getTypeface("Poppins-SemiBold.ttf", context)
+            FontCache.getTypeface("UniNeue-Trial-Book.ttf", context)
         }
     }
 

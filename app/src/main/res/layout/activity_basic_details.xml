@@ -41,7 +41,8 @@
                     android:layout_marginTop="10dp"
                     android:gravity="left|center_vertical"
                     android:textColor="@color/redlight"
-                    android:textSize="@dimen/_20ssp"
+                    android:fontFamily="@font/uni_neue_trial_bold"
+                    android:textSize="@dimen/_16ssp"
                     />
 
                 <TextView
@@ -49,40 +50,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tvstep1"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:textSize="@dimen/_10ssp"
                     android:textColor="@color/grey2"
-                    android:text="Name Your event and tell event-goers why they should com"
+                    android:fontFamily="@font/unineue_trial_regular"
+                    android:text="Name Your event and tell event-goers why they should com Add details that highlight what makes it unique"
 
                     />
 
-                <TextView
-                    android:id="@+id/tvadddetails"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvnameyour"
-                    android:gravity="left|center"
-                    android:text="Add details that highlight what makes it unique"
-                    android:textColor="@color/grey2"
-                    android:textSize="@dimen/_10ssp"  />
+
 
                 <LinearLayout
                     android:id="@+id/ll2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvadddetails"
-                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_below="@+id/tvnameyour"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tveventname"
-                        android:layout_width="125dp"
-                        android:layout_height="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="left|center_vertical"
                         android:text="Event Name"
+                        android:fontFamily="@font/unineue_trial_regular"
+                        android:textFontWeight="500"
                         android:textAllCaps="true"
                         android:textColor="@color/grey2"
-                        android:textSize="@dimen/_14ssp"
+                        android:textSize="@dimen/_12ssp"
                         />
 
                     <EditText
@@ -92,12 +88,12 @@
                         android:layout_marginTop="5dp"
                         android:autofillHints=""
                         android:background="@color/white"
-                        android:hint="event name"
-                        android:padding="5dp"
+                        android:hint="Event name"
+                        android:fontFamily="@font/unineue_trial_regular"
                         android:textColor="@color/grey2"
                         android:textColorHighlight="@color/black"
                         android:textColorHint="#9F9CB0"
-                        android:textSize="@dimen/_15ssp"
+                        android:textSize="@dimen/_14ssp"
                         tools:ignore="TextFields" />
 
                     <View
@@ -120,7 +116,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="15dp"
+                        android:layout_marginStart="10dp"
                         android:backgroundTint="@color/black"
                         android:src="@drawable/group" />
 
@@ -129,7 +125,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="5dp"
                         android:elevation="0dp"
                         style="@style/SpinnerTheme"
                         android:padding="5dp" />
@@ -209,7 +204,9 @@
                         android:layout_height="wrap_content"
                         android:padding="2dp"
                         android:textColor="@color/t5F5F7A_color"
-                        android:textSize="@dimen/_14ssp"
+                        android:textSize="@dimen/_12ssp"
+                        android:fontFamily="@font/unineue_trial_regular"
+                        android:textFontWeight="500"
                         android:text="Publishing Mehtod"
                         />
 
@@ -237,7 +234,9 @@
                                 android:layout_marginTop="5dp"
                                 android:text="PUBLIC"
                                 android:textColor="@color/t5F5F7A_color"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/unineue_trial_regular"
+                                android:textFontWeight="500"
                                 />
 
                             <TextView
@@ -245,6 +244,8 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/_10ssp"
                                 android:textColor="@color/color_5F5F7A"
+                                android:fontFamily="@font/unineue_trial_regular"
+                                android:textFontWeight="500"
                                 android:text="@string/event_will_be_available_publicly_for_all_users" />
                         </LinearLayout>
                     </LinearLayout>
@@ -272,8 +273,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:textColor="@color/t5F5F7A_color"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_12ssp"
                                 android:text="PRIVATE"
+                                android:fontFamily="@font/unineue_trial_regular"
+                                android:textFontWeight="500"
                                  />
 
                             <TextView
@@ -281,6 +284,8 @@
                                 android:textSize="@dimen/_10ssp"
                                 android:textColor="@color/color_5F5F7A"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/unineue_trial_regular"
+                                android:textFontWeight="500"
                                 android:text="Event will be available only to the people either have url or received invitation." />
                         </LinearLayout>
                     </LinearLayout>
@@ -301,8 +306,10 @@
                         android:layout_height="wrap_content"
                         android:padding="2dp"
                         android:text="TICKETING"
+                        android:fontFamily="@font/unineue_trial_regular"
+                        android:textFontWeight="500"
                         android:textColor="@color/t5F5F7A_color"
-                        android:textSize="@dimen/_14ssp"
+                        android:textSize="@dimen/_12ssp"
                         />
 
                     <LinearLayout
@@ -329,8 +336,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:text="Free"
+                                android:fontFamily="@font/unineue_trial_regular"
+                                android:textFontWeight="500"
                                 android:textColor="@color/t5F5F7A_color"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_12ssp"
                                />
 
                             <TextView
@@ -338,6 +347,8 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/_10ssp"
                                 android:textColor="@color/color_5F5F7A"
+                                android:fontFamily="@font/unineue_trial_regular"
+                                android:textFontWeight="500"
                                 android:text="Event will be available publicly for all users" />
                         </LinearLayout>
                     </LinearLayout>
@@ -365,8 +376,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:text="Paid"
+                                android:fontFamily="@font/unineue_trial_regular"
+                                android:textFontWeight="500"
                                 android:textColor="@color/t5F5F7A_color"
-                                android:textSize="@dimen/_14ssp"
+                                android:textSize="@dimen/_12ssp"
                                />
 
                             <TextView
@@ -374,6 +387,8 @@
                                 android:textSize="@dimen/_10ssp"
                                 android:textColor="@color/color_5F5F7A"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/unineue_trial_regular"
+                                android:textFontWeight="500"
                                 android:text="Event will be available only to the people either have url or received invitation." />
                         </LinearLayout>
                     </LinearLayout>
@@ -393,7 +408,7 @@
                 <RelativeLayout
                     android:id="@+id/ll16"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_below="@+id/ll8"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/custom_dropdown_background"
@@ -416,8 +431,9 @@
 
                 <LinearLayout
                     android:id="@+id/saveAndContinueButtonBasic"
-                    android:layout_width="300dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:layout_below="@+id/ll16"
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="60dp"
@@ -434,8 +450,9 @@
                         android:layout_weight="1.50"
                         android:gravity="center"
                         android:text="SAVE &amp; CONTINUE"
+                        android:fontFamily="@font/uni_neue_trial_bold"
                         android:textColor="@color/grey"
-                        android:textSize="@dimen/_14ssp" />
+                        android:textSize="@dimen/_12ssp" />
 
                     <ImageView
                         android:layout_width="15dp"

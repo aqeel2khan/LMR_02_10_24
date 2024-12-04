@@ -4,49 +4,54 @@
 
     <RelativeLayout
         android:id="@+id/outer_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
+        android:layout_margin="@dimen/_5sdp"
         android:background="@drawable/white_bg_blue_border_round_corner"
      >
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_background"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_130sdp"
             app:srcCompat="@drawable/img_16"
+            android:scaleType="fitXY"
           />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
             android:id="@+id/tvBankName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_12ssp"
             android:layout_marginTop="5dp"
             android:textColor="@color/blue_5F5F7A"
             android:textStyle="bold"
+            android:fontFamily="@font/uni_neue_trial_bold"
             android:layout_below="@+id/iv_background"
           />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
             android:id="@+id/tvAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvBankName"
             android:text="@string/title"
             android:textColor="@color/blue_5F5F7A"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_12ssp"
             android:textStyle="normal"
-             />
+            android:fontFamily="@font/uni_neue_trial_bold"
+            />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
             android:id="@+id/tvEventCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/name"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_12ssp"
             android:textColor="@color/blue_5F5F7A"
             android:textStyle="normal"
+            android:fontFamily="@font/uni_neue_trial_bold"
             android:layout_below="@+id/tvAddress"
           />
 

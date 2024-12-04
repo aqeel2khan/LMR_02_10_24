@@ -39,7 +39,9 @@
                     android:layout_marginTop="10dp"
                     android:text="@string/step_3"
                     android:textColor="@color/redlight"
-                    android:textSize="20sp"
+                    android:fontFamily="@font/uni_neue_trial_bold"
+                    android:textSize="@dimen/_16ssp"
+
                     android:textStyle="bold" />
 
                 <TextView
@@ -51,6 +53,7 @@
                     android:text="@string/tell_event_goer_when_your_event_starts_and_ends_so_they_can_make_plans_to_attend"
                     android:textColor="@color/grey2"
                     android:textSize="13sp"
+                    android:fontFamily="@font/unineue_trial_regular"
                     tools:ignore="RtlHardcoded" />
 
                 <LinearLayout
@@ -58,7 +61,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tvtelleventgoer"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="20dp"
                     android:orientation="horizontal"
@@ -69,9 +71,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/circle_shap_allo"
+                        android:background="@drawable/circel_shep_white"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:textStyle="italic"
                         android:text="@string/single_day_event" />
 
                     <TextView
@@ -80,13 +83,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_weight="1"
-                        android:background="@drawable/circel_shep_white"
+                        android:background="@drawable/circle_shap_allo"
+
                         android:gravity="center"
                         android:padding="10dp"
+                        android:textStyle="italic"
                         android:text="@string/recurring_event" />
                 </LinearLayout>
 
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/tvfirsteventdetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +102,7 @@
                     android:text="@string/first_event_details"
                     android:textColor="#5F5F7A"
                     android:textSize="14sp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/uni_neue_trial_bold"
                     tools:ignore="RtlHardcoded" />
 
 
@@ -105,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:layout_below="@+id/tvfirsteventdetails"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="40dp"
                     android:orientation="horizontal"
                     android:weightSum="2">
 
@@ -117,8 +123,11 @@
                         android:gravity="left|center_vertical"
                         android:text="@string/start_date"
                         android:textColor="#4A4A4A"
-                        android:textSize="11sp"
-                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/uni_neue_trial_regular"
+                        android:textFontWeight="700"
+
+
                         tools:ignore="RtlHardcoded" />
 
                     <View
@@ -134,8 +143,9 @@
                         android:layout_weight="0.80"
                         android:text="@string/start_time"
                         android:textColor="#4A4A4A"
-                        android:textSize="11sp"
-                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/uni_neue_trial_regular"
+                        android:textFontWeight="700"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
@@ -146,6 +156,7 @@
                     android:layout_height="30dp"
                     android:layout_below="@+id/ll3"
                     android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:weightSum="2">
 
                     <RelativeLayout
@@ -161,12 +172,13 @@
                             android:layout_toEndOf="@+id/imdateicon"
                             android:text="@string/_12_june_2018"
                             android:textColor="#4A4A4A"
-                            android:textSize="11sp" />
+                            android:fontFamily="@font/uni_neue_trial_regular"
+                            android:textSize="17sp" />
 
                         <ImageView
                             android:id="@+id/imdateicon"
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_alignParentEnd="true"
                             android:src="@drawable/calender" />
                     </RelativeLayout>
@@ -188,14 +200,15 @@
                             android:gravity="center_vertical"
                             android:text="@string/_4_00_pm"
                             android:textColor="#4A4A4A"
-                            android:textSize="11sp" />
+                            android:fontFamily="@font/uni_neue_trial_regular"
+
+                            android:textSize="17sp" />
 
                         <ImageView
                             android:id="@+id/ivStartTime"
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginTop="10dp"
                             android:src="@drawable/clock" />
 
                     </RelativeLayout>
@@ -235,8 +248,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:layout_below="@+id/ll5"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="horizontal"
+
                     android:weightSum="2">
 
                     <TextView
@@ -247,8 +261,9 @@
                         android:gravity="left|center_vertical"
                         android:text="@string/end_date"
                         android:textColor="#4A4A4A"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/uni_neue_trial_regular"
+                        android:textFontWeight="700"
                         tools:ignore="RtlHardcoded" />
 
                     <View
@@ -264,8 +279,9 @@
                         android:layout_weight="0.80"
                         android:text="@string/end_time"
                         android:textColor="#4A4A4A"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/uni_neue_trial_regular"
+                        android:textFontWeight="700"
                         tools:ignore="RtlHardcoded" />
 
                 </LinearLayout>
@@ -276,6 +292,7 @@
                     android:layout_height="30dp"
                     android:layout_below="@+id/ll6"
                     android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:weightSum="2">
 
                     <RelativeLayout
@@ -292,13 +309,15 @@
                             android:gravity="left|center_vertical"
                             android:text="@string/_13_june_2018"
                             android:textColor="#4A4A4A"
-                            android:textSize="11sp"
+                            android:textSize="17sp"
+                            android:fontFamily="@font/uni_neue_trial_regular"
+
                             tools:ignore="RtlHardcoded" />
 
                         <ImageView
                             android:id="@+id/imenddata"
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_alignParentEnd="true"
                             android:layout_marginTop="8dp"
                             android:src="@drawable/calender" />
@@ -322,14 +341,14 @@
                             android:gravity="center_vertical"
                             android:text="@string/_4_00_pm"
                             android:textColor="#4A4A4A"
-                            android:textSize="11sp" />
+                            android:fontFamily="@font/uni_neue_trial_regular"
+                            android:textSize="17sp" />
 
                         <ImageView
                             android:id="@+id/imendtimeicon"
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginTop="10dp"
                             android:layout_toStartOf="@+id/tvend4pm"
                             android:src="@drawable/clock" />
 
@@ -371,6 +390,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/ll8"
+                    android:layout_marginTop="@dimen/_40sdp"
                     android:orientation="vertical">
 
                     <CheckBox
@@ -382,7 +402,8 @@
                         android:textColor="#4A4A4A"
                         android:textColorHint="#092C9F"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/uni_neue_trial_bold"
+                        />
 
                     <TextView
                         android:id="@+id/tvthe1"
@@ -401,18 +422,21 @@
                         android:textColor="#4A4A4A"
                         android:textColorHint="#092C9F"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/uni_neue_trial_bold"
+                        />
 
                     <TextView
                         android:id="@+id/tvthe2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
+                        android:fontFamily="@font/uni_neue_trial_regular"
                         android:text="@string/the_start_time_of_your_event_will_be_displayed_to_attendees"
                         android:textSize="11sp" />
                 </LinearLayout>
 
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/tvaddmoredate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -424,6 +448,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="@string/add_more_date"
+                    android:fontFamily="@font/uni_neue_trial_regular"
                     android:textColor="#4A4A4A"
                     android:textSize="11sp" />
 
@@ -433,7 +458,7 @@
                     android:layout_height="49dp"
                     android:layout_below="@+id/tvaddmoredate"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginBottom="40dp"
                     android:background="@drawable/button_background"
                     android:orientation="horizontal"
@@ -450,6 +475,7 @@
                         android:text="@string/save_amp_continue"
                         android:textColor="@color/grey"
                         android:textSize="14sp"
+                        android:fontFamily="@font/uni_neue_trial_regular"
                         android:textStyle="bold" />
 
                     <ImageView

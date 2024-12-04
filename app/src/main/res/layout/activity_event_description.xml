@@ -41,7 +41,8 @@
                     android:layout_marginTop="10dp"
                     android:text="@string/step2"
                     android:textColor="@color/redlight"
-                    android:textSize="@dimen/_20ssp"
+                    android:fontFamily="@font/uni_neue_trial_bold"
+                    android:textSize="@dimen/_16ssp"
                  />
 
                 <LinearLayout
@@ -61,17 +62,11 @@
                         android:text="@string/tell_event_goers_more_details_about_your_event_and_upload"
                         android:textSize="@dimen/_10ssp"
                         android:textColor="@color/grey2"
+                        android:fontFamily="@font/unineue_trial_regular"
+                        android:textFontWeight="300"
                         tools:ignore="RtlHardcoded" />
 
-                    <TextView
-                        android:id="@+id/tvhighdefindtion"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:text="@string/high_defindtion_images_videos_posters_or_pdf"
-                        android:textSize="@dimen/_10ssp"
-                        android:textColor="@color/grey2"
-                       />
+
 
                 </LinearLayout>
 
@@ -90,14 +85,15 @@
                         android:text="@string/event_description_of_the_event"
                         android:textColor="@color/grey2"
                         android:textSize="14sp"
+                        android:fontFamily="@font/unineue_trial_regular"
+                        android:textFontWeight="600"
                         android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_140sdp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
+
                         android:padding="5dp"
                         android:background="@drawable/form_shape"
                         android:orientation="vertical"
@@ -118,6 +114,8 @@
                             android:textColor="@color/black"
                             android:textColorHighlight="@color/black"
                             android:textColorHint="#9F9CB0"
+                            android:fontFamily="@font/unineue_trial_regular"
+                            android:textFontWeight="300"
                             android:textSize="15sp" />
 
 
@@ -139,7 +137,7 @@
                         android:layout_height="@dimen/_160sdp"
                         android:layout_weight="1"
                         android:background="@drawable/form_shape"
-                        android:elevation="10dp"
+                        android:elevation="0dp"
                         android:radius="8dp">
 
                         <RelativeLayout
@@ -162,6 +160,9 @@
                                     android:layout_centerVertical="true"
                                     android:textSize="14sp"
                                     android:textStyle="bold"
+                                    android:fontFamily="@font/unineue_trial_regular"
+                                    android:textFontWeight="900"
+                                    android:layout_marginLeft="@dimen/_10sdp"
                                     tools:ignore="RtlHardcoded" />
 
                                 <ImageView
@@ -194,6 +195,8 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
                                 android:orientation="vertical"
+                                android:paddingTop="30dp"
+
                                 tools:ignore="UseCompoundDrawables">
 
                                 <ImageView
@@ -214,7 +217,7 @@
                                     android:text="@string/add"
                                     android:textColor="#092C9F"
                                     android:textSize="14sp"
-                                    android:textStyle="bold"
+                                    android:textStyle="italic"
                                     tools:ignore="RtlHardcoded" />
                             </LinearLayout>
 
@@ -235,7 +238,7 @@
                         android:layout_height="@dimen/_160sdp"
                         android:layout_weight="1"
                         android:background="@drawable/form_shape"
-                        android:elevation="10dp"
+                        android:elevation="0dp"
                         android:radius="8dp">
 
                         <RelativeLayout
@@ -257,6 +260,10 @@
                                     android:layout_centerVertical="true"
                                     android:textColor="#092C9F"
                                     android:textSize="14sp"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:fontFamily="@font/unineue_trial_regular"
+                                    android:textFontWeight="900"
+
                                     android:textStyle="bold" />
 
                                 <ImageView
@@ -302,7 +309,8 @@
                                     android:text="@string/add"
                                     android:textColor="#092C9F"
                                     android:textSize="14sp"
-                                    android:textStyle="bold"
+                                    android:textStyle="italic"
+
                                     tools:ignore="RtlHardcoded" />
                             </LinearLayout>
 
@@ -318,7 +326,7 @@
                 <LinearLayout
                     android:id="@+id/cardView2"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_130sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:weightSum="2"
                     android:layout_below="@+id/cardView"
@@ -330,7 +338,7 @@
                         android:layout_weight="1"
                         android:layout_height="@dimen/_160sdp"
                         android:background="@drawable/form_shape"
-                        android:elevation="10dp"
+                        android:elevation="0dp"
                         android:radius="8dp">
 
                         <RelativeLayout
@@ -353,6 +361,8 @@
                                     android:text="PDF/DOC"
                                     android:textColor="#092C9F"
                                     android:textSize="14sp"
+                                    android:fontFamily="@font/unineue_trial_regular"
+                                    android:textFontWeight="700"
                                     android:textStyle="bold" />
 
                                 <ImageView
@@ -396,7 +406,7 @@
                                     android:text="ADD"
                                     android:textColor="#092C9F"
                                     android:textSize="14sp"
-                                    android:textStyle="bold"
+                                    android:textStyle="italic"
                                     tools:ignore="RtlHardcoded" />
                             </LinearLayout>
 
@@ -423,7 +433,7 @@
 
                 <LinearLayout
                     android:id="@+id/saveAndContinueButton"
-                    android:layout_width="300dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/cardView2"
                     android:layout_centerHorizontal="true"
@@ -441,8 +451,9 @@
                         android:layout_weight="1.50"
                         android:gravity="center"
                         android:text="SAVE &amp; CONTINUE"
+                        android:fontFamily="@font/uni_neue_trial_bold"
                         android:textColor="@color/grey"
-                        android:textSize="14dp" />
+                        android:textSize="12dp" />
 
                     <ImageView
                         android:layout_width="15dp"

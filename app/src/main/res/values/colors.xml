@@ -85,5 +85,6 @@
     <color name="uv_color">#585354</color>
     <color name="header_color">#232330</color>
     <color name="icon_tint">#8B9D71</color>
+    <color name="txt_blue">#2C2BD5</color>
 
 </resources>

@@ -30,11 +30,12 @@ class EventPreviewsActivity : BaseActivity<ActivityPreviewsBinding>() {
     @SuppressLint("SetTextI18n")
     override fun initUi() {
          eventId = intent.getStringExtra("eventID").toString()
-        observerPostEventResponseData()
+
         binding.postEventBtn.setOnClickListener {
             val jsonObject = JsonObject()
             jsonObject.addProperty("eventID", eventId)
             viewModel.postEventApiCall(jsonObject)
+            observerPostEventResponseData()
         }
 
 
@@ -63,15 +64,8 @@ class EventPreviewsActivity : BaseActivity<ActivityPreviewsBinding>() {
                         LoaderUtil.hideLoader(this)  // To
                         //     hideLoader()
                         val response = it.data
-                        if(response?.success == true){
-                            val intent = Intent(this@EventPreviewsActivity, MainActivity::class.java)
-                            intent.putExtra("eventID", eventId.toString())
-                            startActivity(intent)
-
-                        }else{
-
-
-                        }
+                        val intent = Intent(this@EventPreviewsActivity, MainActivity::class.java)
+                        startActivity(intent)
                     }
                     is NetworkErrorResult.Error->{
                         LoaderUtil.hideLoader(this)  // To

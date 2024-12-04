@@ -123,13 +123,13 @@ class EventTicketingSeatActivity : BaseActivity<ActivityTicketingSeatBinding>() 
     private fun observerPostResponseData() {
         try {
             LoaderUtil.showLoader(this)  // To show loader
-            viewModel.eventDescriptionResponse.observe(this){
+            viewModel._eventDescriptionResponse.observe(this){
                 when(it){
                     is NetworkErrorResult.Success->{
                         LoaderUtil.hideLoader(this)  // To
 
-                        viewModel.eventDescriptionResponse.removeObservers(this)
-                        if (viewModel.eventDescriptionResponse.hasObservers()) return@observe
+                        viewModel._eventDescriptionResponse.removeObservers(this)
+                        if (viewModel._eventDescriptionResponse.hasObservers()) return@observe
                         //     hideLoader()
                         lifecycleScope.launch {
                             it.let {
